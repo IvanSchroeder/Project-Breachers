@@ -1,0 +1,117 @@
+[gd_scene load_steps=15 format=3 uid="uid://bgqytwox86f2o"]
+
+[ext_resource type="Texture2D" uid="uid://dp33nl50ptbnd" path="res://_art/SimpleParticle.png" id="1_5chq2"]
+[ext_resource type="PackedScene" uid="uid://du58bvqcbbd4m" path="res://_scenes/characters/playerCharacter.tscn" id="2_31pxf"]
+[ext_resource type="Shader" path="res://_art/shaders/smooth_pixel.gdshader" id="2_fi7s5"]
+[ext_resource type="Texture2D" uid="uid://x5602uotodpt" path="res://_art/characterSpritesheets/05_Weapon_Katana_Idle.png" id="2_ge1n8"]
+[ext_resource type="Script" path="res://_scripts/pixelPerfectLayer.gd" id="3_nsubr"]
+[ext_resource type="Texture2D" uid="uid://dm221kprm1nbg" path="res://_art/characterSpritesheets/05_Weapon_SMG_Aim_Idle.png" id="6_5eui2"]
+[ext_resource type="Script" path="res://_scenes/characters/ghost.gd" id="7_il6id"]
+
+[sub_resource type="Curve" id="Curve_k4qq5"]
+_data = [Vector2(0, 0.8), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_eiliv"]
+curve = SubResource("Curve_k4qq5")
+
+[sub_resource type="Curve" id="Curve_aprs7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.100503, 1), 0.0, 0.0, 0, 0, Vector2(0.603015, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_uduef"]
+width = 2048
+curve = SubResource("Curve_aprs7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d6t7s"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1000.0
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.05
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_uduef")
+alpha_curve = SubResource("CurveTexture_eiliv")
+turbulence_noise_strength = 4.71
+turbulence_noise_scale = 10.0
+turbulence_noise_speed = Vector3(2.415, 2.55, 0)
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gkp8s"]
+shader = ExtResource("2_fi7s5")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_q3s8b"]
+viewport_path = NodePath("PixelPerfectLayer/SubViewportContainer/SubViewport")
+
+[node name="Game" type="Node2D"]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." groups=["PP"]]
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_d6t7s")
+texture = ExtResource("1_5chq2")
+lifetime = 10.0
+
+[node name="TestLevel" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="TestLevel" groups=["PP"]]
+material = SubResource("ShaderMaterial_gkp8s")
+position = Vector2(86, 0)
+texture = ExtResource("2_ge1n8")
+hframes = 6
+
+[node name="PlayerCharacter" parent="TestLevel" groups=["PP"] instance=ExtResource("2_31pxf")]
+position = Vector2(-1, 0)
+
+[node name="PlayerCam" type="Camera2D" parent="TestLevel/PlayerCharacter"]
+position = Vector2(1, 0)
+zoom = Vector2(2, 2)
+position_smoothing_speed = 10.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="Ghost" type="Sprite2D" parent="TestLevel" groups=["PP"]]
+show_behind_parent = true
+position = Vector2(-52, -15)
+texture = ExtResource("6_5eui2")
+hframes = 6
+script = ExtResource("7_il6id")
+
+[node name="PixelPerfectLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("mainCamera", "PPCamera", "subViewport")]
+layer = 5
+script = ExtResource("3_nsubr")
+mainCamera = NodePath("../TestLevel/PlayerCharacter/PlayerCam")
+PPCamera = NodePath("SubViewportContainer/SubViewport/PPCamera")
+subViewport = NodePath("SubViewportContainer/SubViewport")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="PixelPerfectLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="PixelPerfectLayer/SubViewportContainer"]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(1280, 960)
+render_target_update_mode = 4
+
+[node name="PPCamera" type="Camera2D" parent="PixelPerfectLayer/SubViewportContainer/SubViewport"]
+zoom = Vector2(2, 2)
+limit_smoothed = true
+position_smoothing_enabled = true
+
+[node name="ViewportTexture" type="TextureRect" parent="PixelPerfectLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = SubResource("ViewportTexture_q3s8b")

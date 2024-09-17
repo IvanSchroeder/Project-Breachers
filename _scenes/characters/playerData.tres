@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="PlayerData" load_steps=2 format=3 uid="uid://c38qlr3m6jd5u"]
+
+[ext_resource type="Script" path="res://_scripts/data/playerData.gd" id="1_wd7dj"]
+
+[resource]
+script = ExtResource("1_wd7dj")
+hasDynamicSpeed = true
+lerpVelocity = true
+forwardSpeed = 100.0
+backwardSpeed = 50.0
+strafeSpeed = 75.0
+walkSpeed = 25.0
+runSpeed = 200.0
+acceleration = 800.0
+decceleration = 1500.0
+turnSpeed = 10.0
+bodyRotationSpeed = 10.0
+hipsRotationSpeed = 10.0
