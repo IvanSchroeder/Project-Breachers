@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://du58bvqcbbd4m"]
+[gd_scene load_steps=45 format=3 uid="uid://dmdebp6a67goa"]
 
 [ext_resource type="Script" path="res://_scripts/characters/playerCharacter.gd" id="1_bqcj3"]
 [ext_resource type="Script" path="res://_scripts/managers/spriteManager.gd" id="1_h3tqs"]
@@ -9,31 +9,61 @@
 [ext_resource type="Shader" path="res://_art/shaders/flash_effect.gdshader" id="3_j5jtd"]
 [ext_resource type="Gradient" uid="uid://b6rxlnccc5uj0" path="res://_art/gradients/eyeTrail.tres" id="4_chr32"]
 [ext_resource type="Script" path="res://_scripts/states/characterStates/playerStates/playerBodyIdle.gd" id="5_38e2w"]
-[ext_resource type="Script" path="res://_scripts/characters/characterPart.gd" id="6_m4fku"]
 [ext_resource type="Resource" uid="uid://c38qlr3m6jd5u" path="res://_scenes/characters/playerData.tres" id="9_m15tq"]
 [ext_resource type="Script" path="res://_scripts/states/characterStates/playerStates/playerBodyWalk.gd" id="10_cshjn"]
 [ext_resource type="Script" path="res://_scripts/states/characterStates/playerStates/playerLegsIdle.gd" id="11_esq4y"]
-[ext_resource type="Texture2D" uid="uid://cdpegxkarim2h" path="res://_art/characterSpritesheets/11_Head_Idle.png" id="11_p6w45"]
+[ext_resource type="PackedScene" uid="uid://mok0eta1cfcs" path="res://_scenes/characters/partSprite.tscn" id="12_bc2fo"]
 [ext_resource type="Script" path="res://_scripts/states/characterStates/playerStates/playerLegsWalk.gd" id="12_qvctv"]
-[ext_resource type="Texture2D" uid="uid://b34tma4wbogyc" path="res://_art/characterSpritesheets/11_Head_Walk.png" id="13_gdhx2"]
-[ext_resource type="Texture2D" uid="uid://chf2ub8a6ycpd" path="res://_art/characterSpritesheets/09_Body_1HandMelee_Idle.png" id="13_k5wpq"]
-[ext_resource type="Texture2D" uid="uid://bdat74vscmhi6" path="res://_art/characterSpritesheets/08_LeftArm_1HandMelee_Idle.png" id="14_skn0l"]
-[ext_resource type="Texture2D" uid="uid://hvrt4jehgkmg" path="res://_art/characterSpritesheets/08_RightArm_1HandMelee_Idle.png" id="15_b30ra"]
-[ext_resource type="Texture2D" uid="uid://b06qhctu1xsul" path="res://_art/characterSpritesheets/08_LeftArm_1HandMelee_Walk.png" id="16_a1iqv"]
-[ext_resource type="Texture2D" uid="uid://e2ynx512aw8k" path="res://_art/characterSpritesheets/07_Hand_Fist_Type1.png" id="16_emp34"]
-[ext_resource type="Texture2D" uid="uid://c13m070ywqfqa" path="res://_art/characterSpritesheets/12_Haircut_Walk.png" id="16_tpusx"]
-[ext_resource type="Texture2D" uid="uid://cbs0i8mrtqwtt" path="res://_art/characterSpritesheets/03_Hips_Idle.png" id="17_14jb8"]
-[ext_resource type="Texture2D" uid="uid://c3lqm3uj6x0yu" path="res://_art/characterSpritesheets/08_RightArm_1HandMelee_Walk.png" id="17_f5edv"]
-[ext_resource type="Texture2D" uid="uid://cjo5xabb3mdyg" path="res://_art/characterSpritesheets/12_Haircut_Idle.png" id="18_mfmcr"]
-[ext_resource type="Texture2D" uid="uid://cdkkiolbljbmc" path="res://_art/characterSpritesheets/10_Shirt_Short_1HandMelee_Idle.png" id="19_rqgkl"]
-[ext_resource type="Texture2D" uid="uid://dcvkme0qa67rq" path="res://_art/characterSpritesheets/01_Legs_Idle.png" id="20_f1el7"]
-[ext_resource type="Texture2D" uid="uid://7lk1c0augp5y" path="res://_art/characterSpritesheets/02_Shoes_Idle.png" id="21_7jyr0"]
-[ext_resource type="Texture2D" uid="uid://bj1q1kvt0p0e1" path="res://_art/characterSpritesheets/03_Hips_Walk.png" id="21_46o7a"]
-[ext_resource type="Texture2D" uid="uid://d03ij0k5ni3f3" path="res://_art/characterSpritesheets/04_Pants_Long_Idle.png" id="22_uhkj8"]
-[ext_resource type="Texture2D" uid="uid://bciuchf2u14cn" path="res://_art/characterSpritesheets/01_Legs_Walk.png" id="23_by7ik"]
-[ext_resource type="Texture2D" uid="uid://q8yrqdbexfbi" path="res://_art/characterSpritesheets/04_Pants_Long_Walk.png" id="23_e218m"]
-[ext_resource type="Texture2D" uid="uid://dd7oivvg0ubi7" path="res://_art/characterSpritesheets/10_Shirt_Short_1HandMelee_Walk.png" id="26_4gy1f"]
-[ext_resource type="Texture2D" uid="uid://cyc3ew8pmpi54" path="res://_art/characterSpritesheets/02_Shoes_Walk.png" id="29_2yh25"]
+[ext_resource type="Texture2D" uid="uid://b5o7bvr0wtalf" path="res://_art/characterSpritesheets/base/01_body/Body_Idle.png" id="14_1ytaw"]
+[ext_resource type="Texture2D" uid="uid://bqmm4wulctqn2" path="res://_art/characterSpritesheets/base/02_arm/Arm_Main_Idle.png" id="15_rxtq7"]
+[ext_resource type="Texture2D" uid="uid://cd30oyf76wn4h" path="res://_art/characterSpritesheets/base/02_arm/Arm_Off_Idle.png" id="16_qf7p2"]
+[ext_resource type="Texture2D" uid="uid://8cfrqem3wkke" path="res://_art/characterSpritesheets/base/03_hand/Hand_Fist_Type1.png" id="17_t1qmi"]
+[ext_resource type="Texture2D" uid="uid://cyd7c16kbe35i" path="res://_art/characterSpritesheets/base/06_foot/Foot_Idle.png" id="18_1t40w"]
+[ext_resource type="Texture2D" uid="uid://dr5xpbl3twnv2" path="res://_art/characterSpritesheets/base/04_hips/Hips_Idle.png" id="18_jtl05"]
+[ext_resource type="Texture2D" uid="uid://mlomgfgygxu8" path="res://_art/characterSpritesheets/base/05_leg/Leg_Main_Idle.png" id="19_c1aqe"]
+[ext_resource type="Texture2D" uid="uid://b1xkerl13uxw2" path="res://_art/characterSpritesheets/base/05_leg/Leg_Off_Idle.png" id="21_lwr0b"]
+[ext_resource type="Texture2D" uid="uid://cq1yhrcux71m5" path="res://_art/characterSpritesheets/base/00_head/Head_Idle.png" id="41_3d4lo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dkmtq"]
+radius = 6.7082
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oopd2"]
+graph_offset = Vector2(-87.7398, 7.07755)
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v7y3t"]
+states/BlendTree/node = SubResource("AnimationNodeBlendTree_oopd2")
+states/BlendTree/position = Vector2(388, 59)
+graph_offset = Vector2(24, -3)
+
+[sub_resource type="Animation" id="Animation_wjkyj"]
+resource_name = "Idle"
+length = 0.60001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteManager:bodyFrame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteManager:legsFrame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
 
 [sub_resource type="Animation" id="Animation_xljt6"]
 resource_name = "Idle"
@@ -55,38 +85,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteManager/SpritesContainer/BodySprite/HeadSprite:position")
-tracks/1/interp = 0
+tracks/1/path = NodePath("SpriteManager:legsFrame")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(1, 0), Vector2(1, 0), Vector2(1, 0), Vector2(1, 0), Vector2(0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteManager/SpritesContainer/BodySprite/LeftArmSprite/LeftHandSprite:position")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(10, -7), Vector2(11, -7), Vector2(12, -6), Vector2(12, -6), Vector2(11, -7), Vector2(10, -7)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteManager/SpritesContainer/BodySprite/RightArmSprite/RightHandSprite:position")
-tracks/3/interp = 0
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(5, 9), Vector2(5, 10), Vector2(3, 11), Vector2(3, 11), Vector2(5, 10), Vector2(5, 9)]
+"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="Animation" id="Animation_opiqn"]
@@ -145,38 +151,44 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteManager/SpritesContainer/BodySprite/HeadSprite:position")
-tracks/1/interp = 0
+tracks/1/path = NodePath("SpriteManager:legsFrame")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(1, 0), Vector2(1, 0), Vector2(1, 0), Vector2(1, 0), Vector2(0, 0)]
+"values": [0, 1, 2, 3, 4, 5]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteManager/SpritesContainer/BodySprite/LeftArmSprite/LeftHandSprite:position")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
+
+[sub_resource type="Animation" id="Animation_cetty"]
+resource_name = "Walk"
+length = 0.60001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SpriteManager:bodyFrame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(10, -7), Vector2(11, -7), Vector2(12, -6), Vector2(12, -6), Vector2(11, -7), Vector2(10, -7)]
+"values": [0, 1, 2, 3, 4, 5]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteManager/SpritesContainer/BodySprite/RightArmSprite/RightHandSprite:position")
-tracks/3/interp = 0
-tracks/3/loop_wrap = true
-tracks/3/keys = {
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SpriteManager:legsFrame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(5, 9), Vector2(5, 10), Vector2(3, 11), Vector2(3, 11), Vector2(5, 10), Vector2(5, 9)]
+"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="Animation" id="Animation_wfkmy"]
@@ -199,47 +211,25 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteManager/SpritesContainer/BodySprite/HeadSprite:position")
-tracks/1/interp = 0
+tracks/1/path = NodePath("SpriteManager:legsFrame")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [Vector2(0, 0), Vector2(1, 0), Vector2(1, 0), Vector2(0, 0), Vector2(1, 0), Vector2(1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("SpriteManager/SpritesContainer/BodySprite/LeftArmSprite/LeftHandSprite:position")
-tracks/2/interp = 0
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(10, -7), Vector2(11, -7), Vector2(12, -6), Vector2(10, -7), Vector2(9, -8), Vector2(7, -8)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("SpriteManager/SpritesContainer/BodySprite/RightArmSprite/RightHandSprite:position")
-tracks/3/interp = 0
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(5, 9), Vector2(5, 10), Vector2(3, 11), Vector2(5, 9), Vector2(6, 9), Vector2(8, 8)]
+"values": [0, 1, 2, 3, 4, 5]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2xpx7"]
 _data = {
-"Idle": SubResource("Animation_xljt6"),
+"Idle": SubResource("Animation_wjkyj"),
+"Idle1H": SubResource("Animation_xljt6"),
 "LegsIdle": SubResource("Animation_opiqn"),
 "LegsWalk": SubResource("Animation_v5dbf"),
 "RESET": SubResource("Animation_1g0h0"),
-"Walk": SubResource("Animation_wfkmy")
+"Walk": SubResource("Animation_cetty"),
+"Walk1H": SubResource("Animation_wfkmy")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a1kxy"]
@@ -251,34 +241,48 @@ shader_parameter/flash_modifier = 1.0
 shader_parameter/alpha = 1.0
 shader_parameter/pixelate_amount = 1.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj0b0"]
+resource_local_to_scene = true
+size = Vector2(6, 6)
+
 [sub_resource type="Curve" id="Curve_qrdy4"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true
 metadata/_snap_count = 20
 
-[sub_resource type="Gradient" id="Gradient_e30aq"]
+[sub_resource type="Gradient" id="Gradient_pup3x"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="Gradient" id="Gradient_xmj13"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
 
-[sub_resource type="Gradient" id="Gradient_tr2ij"]
-colors = PackedColorArray(0, 1, 0.05, 1, 0, 1, 0.05, 0)
-
 [sub_resource type="Gradient" id="Gradient_bcqlv"]
 colors = PackedColorArray(0, 1, 0.75, 1, 0, 1, 0.75, 0)
+
+[sub_resource type="Gradient" id="Gradient_e30aq"]
+colors = PackedColorArray(0, 1, 0.0333333, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_5eu2t"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_tr2ij"]
+colors = PackedColorArray(0, 1, 0.05, 1, 0, 1, 0.05, 0)
 
 [sub_resource type="Curve" id="Curve_yiet8"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="PlayerBody" type="CharacterBody2D"]
+collision_layer = 2
 platform_on_leave = 2
 script = ExtResource("1_bqcj3")
 entityData = ExtResource("9_m15tq")
 currentMoveSpeed = 50.0
 drawEyes = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dkmtq")
 
 [node name="AimSystem" type="Node2D" parent="." node_paths=PackedStringArray("characterBody")]
 script = ExtResource("2_tn1fw")
@@ -324,28 +328,36 @@ playerData = ExtResource("9_m15tq")
 stateName = "LegsWalk"
 animationName = "Walk"
 
-[node name="SpriteManager" type="Node2D" parent="." node_paths=PackedStringArray("HeadSprite", "BodySprite", "LeftArmSprite", "RightArmSprite", "LeftHandSprite", "RightHandSprite", "HaircutSprite", "ShirtSprite", "HipsSprite", "LegsSprite", "PantsSprite", "ShoesSprite")]
+[node name="SpriteManager" type="Node2D" parent="." node_paths=PackedStringArray("HeadSprite", "BodySprite", "ArmMainSprite", "ArmOffSprite", "HandMainSprite", "HandOffSprite", "HipsSprite", "LegMainSprite", "LegOffSprite", "FootMainSprite", "FootOffSprite", "SpritesList")]
 script = ExtResource("1_h3tqs")
-HeadSprite = NodePath("SpritesContainer/BodySprite/HeadSprite")
+HeadSprite = NodePath("SpritesContainer/BodySprite/HeadPos/HeadSprite")
 BodySprite = NodePath("SpritesContainer/BodySprite")
-LeftArmSprite = NodePath("SpritesContainer/BodySprite/LeftArmSprite")
-RightArmSprite = NodePath("SpritesContainer/BodySprite/RightArmSprite")
-LeftHandSprite = NodePath("SpritesContainer/BodySprite/LeftArmSprite/LeftHandSprite")
-RightHandSprite = NodePath("SpritesContainer/BodySprite/RightArmSprite/RightHandSprite")
-HaircutSprite = NodePath("SpritesContainer/BodySprite/HeadSprite/HaircutSprite")
-ShirtSprite = NodePath("SpritesContainer/BodySprite/ShirtSprite")
+ArmMainSprite = NodePath("SpritesContainer/BodySprite/ArmMainSprite")
+ArmOffSprite = NodePath("SpritesContainer/BodySprite/ArmOffSprite")
+HandMainSprite = NodePath("SpritesContainer/BodySprite/ArmMainSprite/HandMainPos/HandMainSprite")
+HandOffSprite = NodePath("SpritesContainer/BodySprite/ArmOffSprite")
 HipsSprite = NodePath("SpritesContainer/HipsSprite")
-LegsSprite = NodePath("SpritesContainer/HipsSprite/LegsSprite")
-PantsSprite = NodePath("SpritesContainer/HipsSprite/LegsSprite/PantsSprite")
-ShoesSprite = NodePath("SpritesContainer/HipsSprite/LegsSprite/ShoesSprite")
+LegMainSprite = NodePath("SpritesContainer/HipsSprite/LegMainSprite")
+LegOffSprite = NodePath("SpritesContainer/HipsSprite/LegOffSprite")
+FootMainSprite = NodePath("SpritesContainer/HipsSprite/LegMainSprite/FootMainPos/FootMainSprite")
+FootOffSprite = NodePath("SpritesContainer/HipsSprite/LegOffSprite/FootOffPos/FootOffSprite")
+SpritesList = [NodePath("SpritesContainer/BodySprite/HeadPos/HeadSprite"), NodePath("SpritesContainer/BodySprite"), NodePath("SpritesContainer/BodySprite/ArmMainSprite"), NodePath("SpritesContainer/BodySprite/ArmOffSprite"), NodePath("SpritesContainer/HipsSprite"), NodePath("SpritesContainer/HipsSprite/LegMainSprite"), NodePath("SpritesContainer/HipsSprite/LegOffSprite"), NodePath("SpritesContainer/HipsSprite/LegMainSprite/FootMainPos/FootMainSprite"), NodePath("SpritesContainer/HipsSprite/LegOffSprite/FootOffPos/FootOffSprite")]
+
+[node name="AnimationTree" type="AnimationTree" parent="SpriteManager"]
+reset_on_save = false
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_v7y3t")
+anim_player = NodePath("../BodyAnimationPlayer")
 
 [node name="BodyAnimationPlayer" type="AnimationPlayer" parent="SpriteManager"]
+reset_on_save = false
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_2xpx7")
 }
 
 [node name="LegsAnimationPlayer" type="AnimationPlayer" parent="SpriteManager"]
+reset_on_save = false
 root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_2xpx7")
@@ -355,210 +367,188 @@ libraries = {
 z_as_relative = false
 material = SubResource("ShaderMaterial_a1kxy")
 
-[node name="BodySprite" type="Sprite2D" parent="SpriteManager/SpritesContainer"]
-z_index = 9
-z_as_relative = false
-use_parent_material = true
-texture = ExtResource("13_k5wpq")
+[node name="BodySprite" parent="SpriteManager/SpritesContainer" instance=ExtResource("12_bc2fo")]
+z_index = 14
+texture = ExtResource("14_1ytaw")
 hframes = 6
-script = ExtResource("6_m4fku")
 displayName = "Body"
+defaultTextureSheet = ExtResource("14_1ytaw")
 partIndex = 1
-partLevel = 7
+partOrder = 14
+partModule = 1
 
-[node name="HeadSprite" type="Sprite2D" parent="SpriteManager/SpritesContainer/BodySprite" node_paths=PackedStringArray("parentPart")]
-z_index = 11
-z_as_relative = false
-use_parent_material = true
-texture = ExtResource("11_p6w45")
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/PartHitbox" index="0"]
+shape = SubResource("RectangleShape2D_xj0b0")
+
+[node name="HeadPos" type="Marker2D" parent="SpriteManager/SpritesContainer/BodySprite"]
+
+[node name="HeadSprite" parent="SpriteManager/SpritesContainer/BodySprite/HeadPos" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
+z_index = 15
+texture = ExtResource("41_3d4lo")
 hframes = 6
-script = ExtResource("6_m4fku")
 displayName = "Head"
-partLevel = 9
-parentPart = NodePath("..")
-spritesheetsAnimList = {
-"Idle": ExtResource("11_p6w45"),
-"Walk": ExtResource("13_gdhx2")
-}
+defaultTextureSheet = ExtResource("41_3d4lo")
+partOrder = 15
+parentPart = NodePath("../..")
 
-[node name="HaircutSprite" type="Sprite2D" parent="SpriteManager/SpritesContainer/BodySprite/HeadSprite" node_paths=PackedStringArray("parentPart")]
-z_index = 12
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/HeadPos/HeadSprite/PartHitbox" index="0"]
+shape = SubResource("RectangleShape2D_xj0b0")
+
+[node name="Eye1" type="Node2D" parent="SpriteManager/SpritesContainer/BodySprite/HeadPos"]
+z_index = 16
 z_as_relative = false
 use_parent_material = true
-texture = ExtResource("18_mfmcr")
-hframes = 6
-script = ExtResource("6_m4fku")
-displayName = "Haircut"
-partLevel = 10
-parentPart = NodePath("..")
-spritesheetsAnimList = {
-"Idle": ExtResource("18_mfmcr"),
-"Walk": ExtResource("16_tpusx")
-}
+position = Vector2(5, -2)
 
-[node name="Eye1" type="Node2D" parent="SpriteManager/SpritesContainer/BodySprite/HeadSprite"]
-position = Vector2(4, -2)
-
-[node name="Eye2" type="Node2D" parent="SpriteManager/SpritesContainer/BodySprite/HeadSprite"]
-position = Vector2(4, 2)
-
-[node name="LeftArmSprite" type="Sprite2D" parent="SpriteManager/SpritesContainer/BodySprite" node_paths=PackedStringArray("parentPart")]
-z_index = 8
+[node name="Eye2" type="Node2D" parent="SpriteManager/SpritesContainer/BodySprite/HeadPos"]
+z_index = 16
 z_as_relative = false
 use_parent_material = true
-texture = ExtResource("14_skn0l")
+position = Vector2(5, 2)
+
+[node name="ArmMainSprite" parent="SpriteManager/SpritesContainer/BodySprite" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
+z_index = 13
+texture = ExtResource("15_rxtq7")
 hframes = 6
-script = ExtResource("6_m4fku")
-displayName = "LeftArm"
+displayName = "Body"
+defaultTextureSheet = ExtResource("15_rxtq7")
 partIndex = 2
-partLevel = 6
+partOrder = 13
+partModule = 2
 parentPart = NodePath("..")
-spritesheetsAnimList = {
-"Idle": ExtResource("14_skn0l"),
-"Walk": ExtResource("16_a1iqv")
-}
 
-[node name="LeftHandSprite" type="Sprite2D" parent="SpriteManager/SpritesContainer/BodySprite/LeftArmSprite" node_paths=PackedStringArray("parentPart")]
-z_index = 7
-z_as_relative = false
-use_parent_material = true
-position = Vector2(10, -7)
-texture = ExtResource("16_emp34")
-hframes = 6
-script = ExtResource("6_m4fku")
-displayName = "LeftHand"
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/PartHitbox" index="0"]
+shape = SubResource("RectangleShape2D_xj0b0")
+
+[node name="HandMainPos" type="Marker2D" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite"]
+position = Vector2(3, 8)
+
+[node name="HandMainSprite" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HandMainPos" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
+z_index = 12
+position = Vector2(1, -1)
+texture = ExtResource("17_t1qmi")
+displayName = "Body"
+defaultTextureSheet = ExtResource("17_t1qmi")
 partIndex = 4
-partLevel = 5
-parentPart = NodePath("..")
-spritesheetsAnimList = {
-"Idle": ExtResource("16_emp34"),
-"Walk": ExtResource("16_emp34")
-}
+partOrder = 12
+partModule = 3
+parentPart = NodePath("../../..")
 
-[node name="RightArmSprite" type="Sprite2D" parent="SpriteManager/SpritesContainer/BodySprite" node_paths=PackedStringArray("parentPart")]
-z_index = 8
-z_as_relative = false
-use_parent_material = true
-texture = ExtResource("15_b30ra")
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HandMainPos/HandMainSprite/PartHitbox" index="0"]
+shape = SubResource("RectangleShape2D_xj0b0")
+
+[node name="ArmOffSprite" parent="SpriteManager/SpritesContainer/BodySprite" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
+z_index = 13
+texture = ExtResource("16_qf7p2")
 hframes = 6
-script = ExtResource("6_m4fku")
-displayName = "RightArm"
+displayName = "Body"
+defaultTextureSheet = ExtResource("16_qf7p2")
 partIndex = 3
-partLevel = 6
+partOrder = 13
+partModule = 2
 parentPart = NodePath("..")
-spritesheetsAnimList = {
-"Idle": ExtResource("15_b30ra"),
-"Walk": ExtResource("17_f5edv")
-}
 
-[node name="RightHandSprite" type="Sprite2D" parent="SpriteManager/SpritesContainer/BodySprite/RightArmSprite" node_paths=PackedStringArray("parentPart")]
-z_index = 7
-z_as_relative = false
-use_parent_material = true
-position = Vector2(5, 9)
-texture = ExtResource("16_emp34")
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/PartHitbox" index="0"]
+shape = SubResource("RectangleShape2D_xj0b0")
+
+[node name="HandOffPos" type="Marker2D" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite"]
+position = Vector2(3, -8)
+
+[node name="HandOffSprite" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
+z_index = 12
+position = Vector2(1, 1)
+texture = ExtResource("17_t1qmi")
+flip_v = true
+displayName = "Body"
+defaultTextureSheet = ExtResource("17_t1qmi")
+partIndex = 5
+partOrder = 12
+partModule = 3
+parentPart = NodePath("../../..")
+
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos/HandOffSprite/PartHitbox" index="0"]
+shape = SubResource("RectangleShape2D_xj0b0")
+
+[node name="HipsSprite" parent="SpriteManager/SpritesContainer" instance=ExtResource("12_bc2fo")]
+z_index = 11
+texture = ExtResource("18_jtl05")
+hframes = 6
+displayName = "Body"
+defaultTextureSheet = ExtResource("18_jtl05")
+partIndex = 6
+partOrder = 11
+partModule = 4
+partPosition = 1
+
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/PartHitbox" index="0"]
+shape = SubResource("RectangleShape2D_xj0b0")
+
+[node name="LegMainSprite" parent="SpriteManager/SpritesContainer/HipsSprite" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
+z_index = 10
+texture = ExtResource("19_c1aqe")
+hframes = 6
+displayName = "Body"
+defaultTextureSheet = ExtResource("19_c1aqe")
+partIndex = 7
+partOrder = 10
+partModule = 5
+partPosition = 1
+parentPart = NodePath("..")
+
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite/PartHitbox" index="0"]
+shape = SubResource("RectangleShape2D_xj0b0")
+
+[node name="FootMainPos" type="Marker2D" parent="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite"]
+position = Vector2(4, -4)
+
+[node name="FootMainSprite" parent="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite/FootMainPos" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
+z_index = 9
+texture = ExtResource("18_1t40w")
+hframes = 6
+displayName = "Body"
+defaultTextureSheet = ExtResource("18_1t40w")
+partIndex = 9
+partOrder = 9
+partModule = 6
+partPosition = 1
+parentPart = NodePath("../..")
+
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite/FootMainPos/FootMainSprite/PartHitbox" index="0"]
+shape = SubResource("RectangleShape2D_xj0b0")
+
+[node name="LegOffSprite" parent="SpriteManager/SpritesContainer/HipsSprite" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
+z_index = 10
+texture = ExtResource("21_lwr0b")
+hframes = 6
+displayName = "Body"
+defaultTextureSheet = ExtResource("21_lwr0b")
+partIndex = 8
+partOrder = 10
+partModule = 5
+partPosition = 1
+parentPart = NodePath("..")
+
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite/PartHitbox" index="0"]
+shape = SubResource("RectangleShape2D_xj0b0")
+
+[node name="FootOffPos" type="Marker2D" parent="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite"]
+position = Vector2(-5, 4)
+
+[node name="FootOffSprite" parent="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite/FootOffPos" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
+z_index = 9
+texture = ExtResource("18_1t40w")
 flip_v = true
 hframes = 6
-script = ExtResource("6_m4fku")
-displayName = "RightHand"
-partIndex = 5
-partLevel = 5
-parentPart = NodePath("..")
-spritesheetsAnimList = {
-"Idle": ExtResource("16_emp34"),
-"Walk": ExtResource("16_emp34")
-}
-
-[node name="ShirtSprite" type="Sprite2D" parent="SpriteManager/SpritesContainer/BodySprite" node_paths=PackedStringArray("parentPart")]
-modulate = Color(1, 0, 0, 1)
-self_modulate = Color(1, 0, 0.0166664, 1)
-z_index = 10
-z_as_relative = false
-use_parent_material = true
-texture = ExtResource("19_rqgkl")
-hframes = 6
-script = ExtResource("6_m4fku")
-displayName = "Shirt"
-partIndex = 1
-partLevel = 8
-partType = 1
-parentPart = NodePath("..")
-defaultColor = Color(1, 1, 1, 1)
-spritesheetsAnimList = {
-"Idle": ExtResource("19_rqgkl"),
-"Walk": ExtResource("26_4gy1f")
-}
-
-[node name="HipsSprite" type="Sprite2D" parent="SpriteManager/SpritesContainer"]
-z_index = 3
-z_as_relative = false
-use_parent_material = true
-texture = ExtResource("17_14jb8")
-hframes = 6
-script = ExtResource("6_m4fku")
-displayName = "Hips"
-partIndex = 6
-partLevel = 3
+displayName = "Body"
+defaultTextureSheet = ExtResource("18_1t40w")
+partIndex = 10
+partOrder = 9
+partModule = 6
 partPosition = 1
-spritesheetsAnimList = {
-"Idle": ExtResource("17_14jb8"),
-"Walk": ExtResource("21_46o7a")
-}
+parentPart = NodePath("../..")
 
-[node name="LegsSprite" type="Sprite2D" parent="SpriteManager/SpritesContainer/HipsSprite" node_paths=PackedStringArray("parentPart")]
-z_index = 1
-z_as_relative = false
-use_parent_material = true
-texture = ExtResource("20_f1el7")
-hframes = 6
-script = ExtResource("6_m4fku")
-displayName = "Legs"
-partIndex = 7
-partLevel = 1
-partPosition = 1
-parentPart = NodePath("..")
-spritesheetsAnimList = {
-"Backward": ExtResource("20_f1el7"),
-"Idle": ExtResource("20_f1el7"),
-"Strafe": ExtResource("20_f1el7"),
-"Walk": ExtResource("23_by7ik")
-}
-
-[node name="PantsSprite" type="Sprite2D" parent="SpriteManager/SpritesContainer/HipsSprite/LegsSprite" node_paths=PackedStringArray("parentPart")]
-z_index = 4
-z_as_relative = false
-use_parent_material = true
-texture = ExtResource("22_uhkj8")
-hframes = 6
-script = ExtResource("6_m4fku")
-displayName = "Pants"
-partIndex = 2
-partLevel = 4
-partType = 1
-partPosition = 1
-parentPart = NodePath("..")
-spritesheetsAnimList = {
-"Idle": ExtResource("22_uhkj8"),
-"Walk": ExtResource("23_e218m")
-}
-
-[node name="ShoesSprite" type="Sprite2D" parent="SpriteManager/SpritesContainer/HipsSprite/LegsSprite" node_paths=PackedStringArray("parentPart")]
-z_index = 2
-z_as_relative = false
-use_parent_material = true
-texture = ExtResource("21_7jyr0")
-hframes = 6
-script = ExtResource("6_m4fku")
-displayName = "Shoes"
-partIndex = 3
-partLevel = 2
-partType = 1
-partPosition = 1
-parentPart = NodePath("..")
-spritesheetsAnimList = {
-"Idle": ExtResource("21_7jyr0"),
-"Walk": ExtResource("29_2yh25")
-}
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite/FootOffPos/FootOffSprite/PartHitbox" index="0"]
+shape = SubResource("RectangleShape2D_xj0b0")
 
 [node name="Pointers" type="Node2D" parent="."]
 
@@ -568,7 +558,7 @@ z_as_relative = false
 points = PackedVector2Array(0, 0, 100, 0)
 width = 2.0
 width_curve = SubResource("Curve_qrdy4")
-gradient = SubResource("Gradient_e30aq")
+gradient = SubResource("Gradient_pup3x")
 joint_mode = 2
 begin_cap_mode = 2
 round_precision = 32
@@ -584,17 +574,6 @@ joint_mode = 2
 begin_cap_mode = 2
 round_precision = 32
 
-[node name="MovePointer" type="Line2D" parent="Pointers"]
-z_index = 1
-z_as_relative = false
-points = PackedVector2Array(0, 0, 100, 0)
-width = 2.0
-width_curve = SubResource("Curve_qrdy4")
-gradient = SubResource("Gradient_tr2ij")
-joint_mode = 2
-begin_cap_mode = 2
-round_precision = 32
-
 [node name="InputPointer" type="Line2D" parent="Pointers"]
 z_index = 1
 z_as_relative = false
@@ -606,9 +585,73 @@ joint_mode = 2
 begin_cap_mode = 2
 round_precision = 32
 
+[node name="DotProduct1" type="Line2D" parent="Pointers/InputPointer"]
+visible = false
+z_index = 3
+z_as_relative = false
+rotation = -0.785398
+points = PackedVector2Array(0, 0, 100, 0)
+width = 1.0
+width_curve = SubResource("Curve_qrdy4")
+gradient = SubResource("Gradient_e30aq")
+joint_mode = 2
+begin_cap_mode = 2
+round_precision = 32
+
+[node name="DotProduct2" type="Line2D" parent="Pointers/InputPointer"]
+visible = false
+z_index = 3
+z_as_relative = false
+rotation = 0.785398
+points = PackedVector2Array(0, 0, 100, 0)
+width = 1.0
+width_curve = SubResource("Curve_qrdy4")
+gradient = SubResource("Gradient_e30aq")
+joint_mode = 2
+begin_cap_mode = 2
+round_precision = 32
+
+[node name="DotProduct3" type="Line2D" parent="Pointers/InputPointer"]
+visible = false
+z_index = 3
+z_as_relative = false
+rotation = -2.35619
+points = PackedVector2Array(0, 0, 100, 0)
+width = 1.0
+width_curve = SubResource("Curve_qrdy4")
+gradient = SubResource("Gradient_5eu2t")
+joint_mode = 2
+begin_cap_mode = 2
+round_precision = 32
+
+[node name="DotProduct4" type="Line2D" parent="Pointers/InputPointer"]
+visible = false
+z_index = 3
+z_as_relative = false
+rotation = 2.35619
+points = PackedVector2Array(0, 0, 100, 0)
+width = 1.0
+width_curve = SubResource("Curve_qrdy4")
+gradient = SubResource("Gradient_5eu2t")
+joint_mode = 2
+begin_cap_mode = 2
+round_precision = 32
+
+[node name="MovePointer" type="Line2D" parent="Pointers"]
+visible = false
+z_index = 1
+z_as_relative = false
+points = PackedVector2Array(0, 0, 100, 0)
+width = 2.0
+width_curve = SubResource("Curve_qrdy4")
+gradient = SubResource("Gradient_tr2ij")
+joint_mode = 2
+begin_cap_mode = 2
+round_precision = 32
+
 [node name="EyeTrail1" type="Line2D" parent="."]
 top_level = true
-z_index = 10
+z_index = 15
 z_as_relative = false
 width = 0.75
 width_curve = SubResource("Curve_yiet8")
@@ -622,7 +665,7 @@ maxLength = 50
 
 [node name="EyeTrail2" type="Line2D" parent="."]
 top_level = true
-z_index = 10
+z_index = 15
 z_as_relative = false
 width = 0.75
 width_curve = SubResource("Curve_yiet8")
@@ -634,3 +677,15 @@ round_precision = 32
 antialiased = true
 script = ExtResource("2_ec3si")
 maxLength = 50
+
+[editable path="SpriteManager/SpritesContainer/BodySprite"]
+[editable path="SpriteManager/SpritesContainer/BodySprite/HeadPos/HeadSprite"]
+[editable path="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite"]
+[editable path="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HandMainPos/HandMainSprite"]
+[editable path="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite"]
+[editable path="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos/HandOffSprite"]
+[editable path="SpriteManager/SpritesContainer/HipsSprite"]
+[editable path="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite"]
+[editable path="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite/FootMainPos/FootMainSprite"]
+[editable path="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite"]
+[editable path="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite/FootOffPos/FootOffSprite"]

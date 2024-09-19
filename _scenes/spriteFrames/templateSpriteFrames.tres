@@ -1,0 +1,65 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dgny2u4hlc2jw"]
+
+[resource]
+resource_local_to_scene = true
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Gun2HAimIdle",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Gun2HAimStatic",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Gun2HAimWalk",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Gun2HHipIdle",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Gun2HHipStatic",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Gun2HHipWalk",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Melee1HIdle",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Melee1HWalk",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Melee2HIdle",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Melee2HWalk",
+"speed": 10.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"Walk",
+"speed": 10.0
+}]

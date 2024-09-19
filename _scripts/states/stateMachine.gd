@@ -24,6 +24,7 @@ func init(charBody: CharacterBody2D, anim: AnimationPlayer) -> void :
 	
 	for state in statesList:
 		state.init(characterBody, self, characterBody.entityData)
+		print("Initialized " + state.name)
 	
 	print("Initialized State Machine")
 

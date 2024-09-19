@@ -1,12 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bgqytwox86f2o"]
+[gd_scene load_steps=13 format=3 uid="uid://bgqytwox86f2o"]
 
 [ext_resource type="Texture2D" uid="uid://dp33nl50ptbnd" path="res://_art/SimpleParticle.png" id="1_5chq2"]
-[ext_resource type="PackedScene" uid="uid://du58bvqcbbd4m" path="res://_scenes/characters/playerCharacter.tscn" id="2_31pxf"]
-[ext_resource type="Shader" path="res://_art/shaders/smooth_pixel.gdshader" id="2_fi7s5"]
-[ext_resource type="Texture2D" uid="uid://x5602uotodpt" path="res://_art/characterSpritesheets/05_Weapon_Katana_Idle.png" id="2_ge1n8"]
+[ext_resource type="PackedScene" uid="uid://dmdebp6a67goa" path="res://_scenes/characters/playerCharacter.tscn" id="2_31pxf"]
+[ext_resource type="Shader" path="res://_art/shaders/flash_effect.gdshader" id="2_ggeaj"]
+[ext_resource type="Texture2D" uid="uid://4rxb56g2rvxq" path="res://_art/characterSpritesheets/weapon/Weapon_Katana_Static.png" id="3_bqjbx"]
 [ext_resource type="Script" path="res://_scripts/pixelPerfectLayer.gd" id="3_nsubr"]
-[ext_resource type="Texture2D" uid="uid://dm221kprm1nbg" path="res://_art/characterSpritesheets/05_Weapon_SMG_Aim_Idle.png" id="6_5eui2"]
-[ext_resource type="Script" path="res://_scenes/characters/ghost.gd" id="7_il6id"]
 
 [sub_resource type="Curve" id="Curve_k4qq5"]
 _data = [Vector2(0, 0.8), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -42,7 +40,12 @@ turbulence_influence_min = 0.0
 turbulence_influence_max = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gkp8s"]
-shader = ExtResource("2_fi7s5")
+shader = ExtResource("2_ggeaj")
+shader_parameter/active = false
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_modifier = 1.0
+shader_parameter/alpha = 1.0
+shader_parameter/pixelate_amount = 1.0
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_q3s8b"]
 viewport_path = NodePath("PixelPerfectLayer/SubViewportContainer/SubViewport")
@@ -57,11 +60,9 @@ lifetime = 10.0
 
 [node name="TestLevel" type="Node2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="TestLevel" groups=["PP"]]
+[node name="Katana" type="Sprite2D" parent="TestLevel" groups=["PP"]]
 material = SubResource("ShaderMaterial_gkp8s")
-position = Vector2(86, 0)
-texture = ExtResource("2_ge1n8")
-hframes = 6
+texture = ExtResource("3_bqjbx")
 
 [node name="PlayerCharacter" parent="TestLevel" groups=["PP"] instance=ExtResource("2_31pxf")]
 position = Vector2(-1, 0)
@@ -72,13 +73,6 @@ zoom = Vector2(2, 2)
 position_smoothing_speed = 10.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
-
-[node name="Ghost" type="Sprite2D" parent="TestLevel" groups=["PP"]]
-show_behind_parent = true
-position = Vector2(-52, -15)
-texture = ExtResource("6_5eui2")
-hframes = 6
-script = ExtResource("7_il6id")
 
 [node name="PixelPerfectLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("mainCamera", "PPCamera", "subViewport")]
 layer = 5

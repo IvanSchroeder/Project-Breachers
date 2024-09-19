@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://mok0eta1cfcs"]
+
+[ext_resource type="Script" path="res://_scripts/characters/characterPart.gd" id="2_07m2k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjulv"]
+resource_local_to_scene = true
+size = Vector2(6, 6)
+
+[node name="PartSprite" type="Sprite2D" node_paths=PackedStringArray("hitbox")]
+z_index = 1
+z_as_relative = false
+use_parent_material = true
+script = ExtResource("2_07m2k")
+displayName = "Part"
+partModule = 0
+hitbox = NodePath("PartHitbox")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": false,
+"slice_section": false
+}
+
+[node name="PartHitbox" type="Area2D" parent="."]
+input_pickable = false
+monitoring = false
+
+[node name="HitboxShape" type="CollisionShape2D" parent="PartHitbox"]
+shape = SubResource("RectangleShape2D_fjulv")
+debug_color = Color(0.7, 0, 0, 0.419608)

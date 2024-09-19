@@ -11,102 +11,90 @@ class_name SpriteManager extends Node2D
 
 @onready var spritesContainer : Node2D = get_node("SpritesContainer")
 
-# Upper sprites
 @export var HeadSprite : CharacterPart
 @export var BodySprite : CharacterPart
-@export var LeftArmSprite : CharacterPart
-@export var RightArmSprite : CharacterPart
-@export var LeftHandSprite : CharacterPart
-@export var RightHandSprite : CharacterPart
+@export var ArmMainSprite : CharacterPart
+@export var ArmOffSprite : CharacterPart
+@export var HandMainSprite : CharacterPart
+@export var HandOffSprite : CharacterPart
+@export var HipsSprite : CharacterPart
+@export var LegMainSprite : CharacterPart
+@export var LegOffSprite : CharacterPart
+@export var FootMainSprite : CharacterPart
+@export var FootOffSprite : CharacterPart
 
 @export var HaircutSprite : CharacterPart
 @export var ShirtSprite : CharacterPart
-@export var LeftWeaponSprite : CharacterPart
-@export var RightWeaponSprite : CharacterPart
-
-# Lower sprites
-@export var HipsSprite : CharacterPart
-@export var LegsSprite : CharacterPart
-
 @export var PantsSprite : CharacterPart
 @export var ShoesSprite : CharacterPart
 
-@onready var SpritesList = spritesContainer.find_children("*Sprite", "CharacterPart", true)
-@export var BaseSpritesList : Array[Sprite2D]
-@export var ClothingSpritesList : Array[Sprite2D]
+@export var SpritesList : Array[CharacterPart]
+#@export var BaseSpritesList : Array[CharacterPart]
+#@export var ClothingSpritesList : Array[CharacterPart]
+@export var UpperPartsList : Array[CharacterPart]
+@export var LowerPartsList : Array[CharacterPart]
 
 @export var bodyFrame : int = 0 :
 	set = update_body_frames
 @export var legsFrame : int = 0 :
 	set = update_legs_frames
 
-@export var bodyAngle : float
-@export var hipsAngle : float
+func _ready():
+	#var format_message = "Added %s to %s."
+	#var actual_message
+	#actual_message = format_message % [part, BaseSpritesList]
+	for part in SpritesList :
+		if part.partPosition == part.PartPosition.Upper :
+			UpperPartsList.append(part)
+		else :
+			LowerPartsList.append(part)
 
 func change_current_animation_body(anim : String) :
 	currentBodyAnimation = anim
 	bodyAnimPlayer.play(currentBodyAnimation)
-	change_spritesheets(currentBodyAnimation, CharacterPart.PartPosition.Upper)
+	change_spritesheets(currentBodyAnimation, UpperPartsList)
 	
 func change_current_animation_legs(anim : String) :
 	currentLegsAnimation = anim
-	legsAnimPlayer.play("Legs" + currentLegsAnimation)
-	change_spritesheets(currentLegsAnimation, CharacterPart.PartPosition.Lower)
+	legsAnimPlayer.play("Legs" + anim)
+	change_spritesheets(anim, LowerPartsList)
 
-func change_spritesheets(anim : String, part : CharacterPart.PartPosition) :
-	for sprite : CharacterPart in SpritesList :
-		if sprite.partPosition == part :
-			sprite.texture = sprite.get_anim_sheet(anim)
+func change_spritesheets(anim : String, list : Array[CharacterPart]) :
+	for part : CharacterPart in list :
+		part.set_anim_sheet(anim)
 
-func _ready():
-	#find_parts()
-	
-	#var format_message = "Added %s to %s."
-	#var actual_message
-	#actual_message = format_message % [part, BaseSpritesList]
-	
-	for part : CharacterPart in SpritesList:
-		if part.partType == part.PartType.Base:
-			BaseSpritesList.append(part)
-		elif part.partType == part.PartType.Base:
-			ClothingSpritesList.append(part)
-		
-		part.init()
-
-#func find_parts() -> void :
-	#HaircutSprite = get_node("HaircutSprite")
-	#HeadSprite = get_node("HeadSprite")
-	#BodySprite = get_node("BodySprite")
-	#LeftArmSprite = get_node("LeftArmSprite")
-	#RightArmSprite = get_node("RightArmSprite")
-	#LeftHandSprite = get_node("LeftHandSprite")
-	#RightHandSprite = get_node("RightHandSprite")
-	#HipsSprite = get_node("HipsSprite")
-	#LegsSprite = get_node("LegsSprite")
-	#
-	#ShirtSprite = get_node("ShirtSprite")
-	##LeftWeaponSprite = get_node("LeftWeaponSprite")
-	##RightWeaponSprite = get_node("RightWeaponSprite")
-	#
-	#PantsSprite = get_node("PantsSprite")
-	#ShoesSprite = get_node("ShoesSprite")
+func change_legs_spritesheets(anim : String) :
+	HipsSprite.set_anim_sheet(anim)
+	LegMainSprite.set_anim_sheet(anim)
+	LegOffSprite.set_anim_sheet(anim)
 
 func update_body_frames(newFrame):
 	bodyFrame = newFrame
 	if is_inside_tree(): # Needed since initial set is called before _ready
-		for part : CharacterPart in SpritesList:
-			if part.partPosition == part.PartPosition.Upper :
+		for part : CharacterPart in UpperPartsList:
+			if part.is_visible_in_tree() :
 				part._set_frame(bodyFrame)
 
 func update_legs_frames(newFrame):
 	legsFrame = newFrame
 	if is_inside_tree(): # Needed since initial set is called before _ready
-		for part : CharacterPart in SpritesList:
-			if part.partPosition == part.PartPosition.Lower :
+		for part : CharacterPart in LowerPartsList:
+			if part.is_visible_in_tree() :
 				part._set_frame(legsFrame)
 
-func rotate_body(direction : Vector2, delta : float, speed : float) -> void :
-	NodeUtilities.rotate_towards(BodySprite, direction, delta, false, speed)
+func sincronize_frames(reset : bool = false) -> void :
+	if reset :
+		bodyFrame = 0
+		legsFrame = 0
+	else :
+		bodyFrame = legsFrame
 
-func rotate_hips(direction : Vector2, delta : float, speed : float) -> void :
-	NodeUtilities.rotate_towards(HipsSprite, direction, delta, false, speed)
+func set_animation_speed_scale(speed : float = 1.0) :
+	bodyAnimPlayer.speed_scale = speed
+	legsAnimPlayer.speed_scale = speed
+
+func rotate_body(direction : Vector2, delta : float, instant : bool, speed : float) -> void :
+	NodeUtilities.rotate_towards(BodySprite, direction, delta, instant, speed)
+
+func rotate_hips(direction : Vector2, delta : float, instant : bool, speed : float) -> void :
+	NodeUtilities.rotate_towards(HipsSprite, direction, delta, instant, speed)
