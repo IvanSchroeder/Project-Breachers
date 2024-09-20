@@ -14,8 +14,10 @@ enum PartPosition {Upper, Lower}
 @export var partType : PartType = PartType.Base
 @export var partPosition : PartPosition = PartPosition.Upper
 @export var parentPart : CharacterPart
-@export var hasHitbox : bool = false
-@export var hitbox : Area2D
+@export var hasHurtBox : bool = false
+@export var hurtBox : HurtBox
+@export var hasHitBox : bool = false
+@export var hitBox : HitBox
 
 @export var AnimationsList : Dictionary = {
 }
@@ -28,8 +30,12 @@ func _ready() :
 func init() -> void :
 	texture = get_anim_sheet("Idle")
 	z_index = partOrder
-	if !hasHitbox :
-		hitbox.visible = false
+	
+	if !hasHurtBox :
+		hurtBox.enabled = false
+	
+	if !hasHitBox :
+		hurtBox.enabled = false
 
 func _set_frame(newFrame: int) -> void :
 	if hframes > 1 :

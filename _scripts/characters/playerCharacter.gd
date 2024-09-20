@@ -1,6 +1,6 @@
 class_name PlayerBody extends CharacterBody2D
 
-enum WalkDirection { Forward, Backward, Strafing }
+enum WalkDirection { Forward, Strafe, Backwalk }
 
 @onready var bodyStateMachine : StateMachine = get_node("BodyStateMachine")
 @onready var legsStateMachine : StateMachine = get_node("LegsStateMachine")
@@ -36,9 +36,13 @@ var backwardDotLimit : float = -0.5 :
 var runDotLimit : float = 0.25 :
 	set(value) : runDotLimit = clamp(value, 0.0, 1.0)
 
-var moveDir : Vector2 = Vector2(1.0, 0.0)
-var lastMoveDir : Vector2 = Vector2(1.0, 0.0)
+var targetMoveDir : Vector2 = Vector2.ZERO
 var targetLookDir : Vector2 = Vector2(1.0, 0.0)
+
+var moveDir : Vector2 = Vector2.ZERO
+var lastMoveDir : Vector2 = Vector2.ZERO
+var lookDir : Vector2 = Vector2(1.0, 0.0)
+
 var dotProduct : float = 1.0
 var vecFromAngle1 : Vector2 = Vector2(1.0, 0.0)
 var vecFromAngle2 : Vector2 = Vector2(1.0, 0.0)
@@ -46,8 +50,13 @@ var vecFromAngle2 : Vector2 = Vector2(1.0, 0.0)
 @export var isIdle : bool = true
 @export var isMoving : bool = false
 @export var isWalking : bool = false
+@export var isTryingWalking : bool = false
+@export var canMove : bool = true
 @export var canRun : bool = true
+@export var isTryingRunning : bool = false
 @export var isRunning : bool = false
+@export var isStrafing : bool = false
+@export var isBackwalking : bool = false
 @export var isChangingDirections : bool = false
 
 var animationSpeed : float = 1.0
@@ -64,26 +73,38 @@ func _process(_delta) -> void :
 	dotProduct = inputManager.aimDir.dot(inputManager.lastInputDir)
 	if drawEyes : draw_eyes(_delta)
 	
-	moveDir = inputManager.inputDir
-	
-	if moveDir != Vector2.ZERO :
-		lastMoveDir = moveDir
-	
-	isRunning = canRun && inputManager.try_run()
-	isWalking = inputManager.try_walk()
-	
 	vecFromAngle1 = Vector2.from_angle(deg_to_rad(strafeAngle))
 	vecFromAngle2 = Vector2.from_angle(deg_to_rad(backwardAngle))
 	strafeDotLimit = vecFromAngle1.dot(Vector2.RIGHT)
 	backwardDotLimit = vecFromAngle2.dot(Vector2.RIGHT)
 	
-	targetLookDir = NodeUtilities.rotate_towards_vector(targetLookDir, inputManager.aimDir, _delta, false, entityData.turnSpeed)
+	isTryingRunning = inputManager.try_run() && canRun
+	isTryingWalking = inputManager.try_walk()
+	
+	targetMoveDir = inputManager.inputDir
+	targetLookDir = inputManager.aimDir
+	
+	if targetMoveDir != Vector2.ZERO :
+		lastMoveDir = moveDir
+	
+	if dotProduct >= strafeDotLimit :
+		walkDirection = WalkDirection.Forward
+		isStrafing = false
+		isBackwalking = false
+	elif dotProduct >= backwardDotLimit :
+		walkDirection = WalkDirection.Strafe
+		isStrafing = true
+		isBackwalking = false
+	else :
+		walkDirection = WalkDirection.Backwalk
+		isStrafing = false
+		isBackwalking = true
 
 func _physics_process(_delta) -> void :
-	NodeUtilities.rotate_towards(aimPointer, inputManager.aimDir, _delta)
-	NodeUtilities.rotate_towards(inputPointer, inputManager.lastInputDir, _delta)
+	NodeUtilities.rotate_towards(aimPointer, targetLookDir, _delta)
+	NodeUtilities.rotate_towards(inputPointer, targetMoveDir, _delta)
 	
-	NodeUtilities.rotate_towards(lookPointer, targetLookDir, _delta)
+	#NodeUtilities.rotate_towards(lookPointer, targetLookDir, _delta)
 	#NodeUtilities.rotate_towards(movePointer, lastMoveDir, _delta, false, entityData.hipsRotationSpeed)
 	
 	#NodeUtilities.rotate_towards(dotProduct1, vecFromAngle1, _delta)

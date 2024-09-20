@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dmdebp6a67goa"]
+[gd_scene load_steps=86 format=3 uid="uid://dmdebp6a67goa"]
 
 [ext_resource type="Script" path="res://_scripts/characters/playerCharacter.gd" id="1_bqcj3"]
 [ext_resource type="Script" path="res://_scripts/managers/spriteManager.gd" id="1_h3tqs"]
@@ -9,31 +9,51 @@
 [ext_resource type="Shader" path="res://_art/shaders/flash_effect.gdshader" id="3_j5jtd"]
 [ext_resource type="Gradient" uid="uid://b6rxlnccc5uj0" path="res://_art/gradients/eyeTrail.tres" id="4_chr32"]
 [ext_resource type="Script" path="res://_scripts/states/characterStates/playerStates/playerBodyIdle.gd" id="5_38e2w"]
+[ext_resource type="Script" path="res://_scripts/states/characterStates/playerStates/playerBodyRun.gd" id="8_tc7m4"]
 [ext_resource type="Resource" uid="uid://c38qlr3m6jd5u" path="res://_scenes/characters/playerData.tres" id="9_m15tq"]
 [ext_resource type="Script" path="res://_scripts/states/characterStates/playerStates/playerBodyWalk.gd" id="10_cshjn"]
+[ext_resource type="Script" path="res://_scripts/states/characterStates/playerStates/playerLegsRun.gd" id="10_vx4dh"]
 [ext_resource type="Script" path="res://_scripts/states/characterStates/playerStates/playerLegsIdle.gd" id="11_esq4y"]
 [ext_resource type="PackedScene" uid="uid://mok0eta1cfcs" path="res://_scenes/characters/partSprite.tscn" id="12_bc2fo"]
 [ext_resource type="Script" path="res://_scripts/states/characterStates/playerStates/playerLegsWalk.gd" id="12_qvctv"]
 [ext_resource type="Texture2D" uid="uid://b5o7bvr0wtalf" path="res://_art/characterSpritesheets/base/01_body/Body_Idle.png" id="14_1ytaw"]
 [ext_resource type="Texture2D" uid="uid://bqmm4wulctqn2" path="res://_art/characterSpritesheets/base/02_arm/Arm_Main_Idle.png" id="15_rxtq7"]
+[ext_resource type="Texture2D" uid="uid://h27bxn2qnh4w" path="res://_art/characterSpritesheets/base/01_body/Body_Walk.png" id="16_kdxbq"]
 [ext_resource type="Texture2D" uid="uid://cd30oyf76wn4h" path="res://_art/characterSpritesheets/base/02_arm/Arm_Off_Idle.png" id="16_qf7p2"]
+[ext_resource type="Texture2D" uid="uid://dtaj00ypbdim5" path="res://_art/characterSpritesheets/base/01_body/Body_Melee_1H_Idle.png" id="17_chiny"]
 [ext_resource type="Texture2D" uid="uid://8cfrqem3wkke" path="res://_art/characterSpritesheets/base/03_hand/Hand_Fist_Type1.png" id="17_t1qmi"]
-[ext_resource type="Texture2D" uid="uid://cyd7c16kbe35i" path="res://_art/characterSpritesheets/base/06_foot/Foot_Idle.png" id="18_1t40w"]
+[ext_resource type="Texture2D" uid="uid://difkdvrfvonv2" path="res://_art/characterSpritesheets/base/01_body/Body_Melee_1H_Walk.png" id="18_fa1n2"]
 [ext_resource type="Texture2D" uid="uid://dr5xpbl3twnv2" path="res://_art/characterSpritesheets/base/04_hips/Hips_Idle.png" id="18_jtl05"]
+[ext_resource type="Texture2D" uid="uid://cmjd71onvxorf" path="res://_art/characterSpritesheets/base/04_hips/Hips_Walk.png" id="19_arrhf"]
 [ext_resource type="Texture2D" uid="uid://mlomgfgygxu8" path="res://_art/characterSpritesheets/base/05_leg/Leg_Main_Idle.png" id="19_c1aqe"]
+[ext_resource type="Texture2D" uid="uid://baa5j1jhtxmh0" path="res://_art/characterSpritesheets/base/01_body/Body_Melee_2H_Style1_Idle.png" id="19_onql7"]
+[ext_resource type="Texture2D" uid="uid://chjhllv5dmihf" path="res://_art/characterSpritesheets/base/01_body/Body_Melee_2H_Style1_Walk.png" id="20_1pos0"]
+[ext_resource type="Texture2D" uid="uid://cpppkxh14vo8w" path="res://_art/characterSpritesheets/base/04_hips/Hips_Strafe.png" id="20_ogsy6"]
+[ext_resource type="Texture2D" uid="uid://b1474m4n1tm51" path="res://_art/characterSpritesheets/base/05_leg/Leg_Main_Walk.png" id="20_tkbag"]
+[ext_resource type="Texture2D" uid="uid://bdbrkp8gn5xdb" path="res://_art/characterSpritesheets/base/05_leg/Leg_Main_Strafe.png" id="21_234kj"]
+[ext_resource type="Texture2D" uid="uid://kot2upj8vicp" path="res://_art/characterSpritesheets/base/04_hips/Hips_Backwalk.png" id="21_i3ad7"]
 [ext_resource type="Texture2D" uid="uid://b1xkerl13uxw2" path="res://_art/characterSpritesheets/base/05_leg/Leg_Off_Idle.png" id="21_lwr0b"]
+[ext_resource type="Texture2D" uid="uid://bkix63bq8e0v2" path="res://_art/characterSpritesheets/base/04_hips/Hips_Run.png" id="22_k2qiq"]
+[ext_resource type="Texture2D" uid="uid://bx8n1dvisii2k" path="res://_art/characterSpritesheets/base/05_leg/Leg_Main_Backwalk.png" id="22_m0md5"]
+[ext_resource type="Texture2D" uid="uid://bgfoy6s3lr21d" path="res://_art/characterSpritesheets/base/05_leg/Leg_Off_Backwalk.png" id="22_p83fg"]
+[ext_resource type="Texture2D" uid="uid://bm7blqsgkq5yu" path="res://_art/characterSpritesheets/base/02_arm/Arm_Main_Walk.png" id="23_ew4xt"]
+[ext_resource type="Texture2D" uid="uid://6qtn7ulwul5y" path="res://_art/characterSpritesheets/base/05_leg/Leg_Off_Strafe.png" id="23_xxbin"]
+[ext_resource type="Texture2D" uid="uid://bxgf3vc2c65m5" path="res://_art/characterSpritesheets/base/02_arm/Arm_Main_Melee_1H_Idle.png" id="24_enww3"]
+[ext_resource type="Texture2D" uid="uid://itypim5ein3t" path="res://_art/characterSpritesheets/base/05_leg/Leg_Off_Walk.png" id="24_y14wl"]
+[ext_resource type="Texture2D" uid="uid://e5jhtd7fhmxn" path="res://_art/characterSpritesheets/base/02_arm/Arm_Main_Melee_1H_Walk.png" id="25_civby"]
+[ext_resource type="Texture2D" uid="uid://bjyrpoe4vkda6" path="res://_art/characterSpritesheets/base/02_arm/Arm_Main_Melee_2H_Style1_Idle.png" id="26_bawxk"]
+[ext_resource type="Texture2D" uid="uid://c56730keks8a4" path="res://_art/characterSpritesheets/base/05_leg/Leg_Main_Run.png" id="26_bu4ij"]
+[ext_resource type="Texture2D" uid="uid://tyqr3dtv3lay" path="res://_art/characterSpritesheets/base/02_arm/Arm_Main_Melee_2H_Style1_Walk.png" id="27_ynhgm"]
+[ext_resource type="Texture2D" uid="uid://rphyd8ypvq43" path="res://_art/characterSpritesheets/base/02_arm/Arm_Off_Walk.png" id="30_57n58"]
+[ext_resource type="Texture2D" uid="uid://b2pgsp6hvobpu" path="res://_art/characterSpritesheets/base/05_leg/Leg_Off_Run.png" id="31_iu3xv"]
+[ext_resource type="Texture2D" uid="uid://dogjtc7x31vna" path="res://_art/characterSpritesheets/base/02_arm/Arm_Off_Melee_1H_Idle.png" id="31_pu6u3"]
+[ext_resource type="Texture2D" uid="uid://b551qaft1k2ya" path="res://_art/characterSpritesheets/base/02_arm/Arm_Off_Melee_1H_Walk.png" id="32_d46c1"]
+[ext_resource type="Texture2D" uid="uid://4jj8jolw11xu" path="res://_art/characterSpritesheets/base/02_arm/Arm_Off_Melee_2H_Style1_Idle.png" id="33_umuth"]
+[ext_resource type="Texture2D" uid="uid://cge8on22e8tpt" path="res://_art/characterSpritesheets/base/02_arm/Arm_Off_Melee_2H_Style1_Walk.png" id="34_tmxrn"]
 [ext_resource type="Texture2D" uid="uid://cq1yhrcux71m5" path="res://_art/characterSpritesheets/base/00_head/Head_Idle.png" id="41_3d4lo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dkmtq"]
 radius = 6.7082
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_oopd2"]
-graph_offset = Vector2(-87.7398, 7.07755)
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_v7y3t"]
-states/BlendTree/node = SubResource("AnimationNodeBlendTree_oopd2")
-states/BlendTree/position = Vector2(388, 59)
-graph_offset = Vector2(24, -3)
 
 [sub_resource type="Animation" id="Animation_wjkyj"]
 resource_name = "Idle"
@@ -56,7 +76,7 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("SpriteManager:legsFrame")
-tracks/1/interp = 1
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
@@ -64,35 +84,77 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
-
-[sub_resource type="Animation" id="Animation_xljt6"]
-resource_name = "Idle"
-length = 0.60001
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteManager:bodyFrame")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteManager/SpritesContainer/BodySprite/HeadPos:position")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-1, 0), Vector2(-1, 0), Vector2(0, 0), Vector2(0, 0)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteManager:legsFrame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HandMainPos:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [Vector2(3, 8), Vector2(3, 9), Vector2(3, 9), Vector2(3, 9), Vector2(3, 9), Vector2(3, 8)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(3, -8), Vector2(3, -9), Vector2(3, -9), Vector2(3, -9), Vector2(3, -9), Vector2(3, -8)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SpriteManager/SpritesContainer/BodySprite/HeadPos/HeadSprite:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(-1, 0), Vector2(-1, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HandMainPos/HandMainSprite:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, 8), Vector2(3, 9), Vector2(3, 9), Vector2(3, 9), Vector2(3, 9), Vector2(3, 8)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos/HandOffSprite:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, -8), Vector2(3, -9), Vector2(3, -9), Vector2(3, -9), Vector2(3, -9), Vector2(3, -8)]
 }
 
 [sub_resource type="Animation" id="Animation_opiqn"]
@@ -143,10 +205,10 @@ tracks/0/path = NodePath("SpriteManager:bodyFrame")
 tracks/0/interp = 0
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -155,10 +217,46 @@ tracks/1/path = NodePath("SpriteManager:legsFrame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteManager/SpritesContainer/BodySprite/HeadPos:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HandMainPos:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, 8)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -8)]
 }
 
 [sub_resource type="Animation" id="Animation_cetty"]
@@ -182,7 +280,7 @@ tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath("SpriteManager:legsFrame")
-tracks/1/interp = 1
+tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
@@ -190,46 +288,50 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
 }
-
-[sub_resource type="Animation" id="Animation_wfkmy"]
-resource_name = "Walk"
-length = 0.60001
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SpriteManager:bodyFrame")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SpriteManager/SpritesContainer/BodySprite/HeadPos:position")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [Vector2(0, 0), Vector2(1, 0), Vector2(1, 1), Vector2(0, 0), Vector2(1, 0), Vector2(1, -1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("SpriteManager:legsFrame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HandMainPos:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5]
+"values": [Vector2(3, 8), Vector2(1, 9), Vector2(-2, 9), Vector2(3, 8), Vector2(6, 8), Vector2(6, 7)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(3, -8), Vector2(6, -8), Vector2(6, -7), Vector2(3, -8), Vector2(1, -9), Vector2(-2, -9)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2xpx7"]
 _data = {
 "Idle": SubResource("Animation_wjkyj"),
-"Idle1H": SubResource("Animation_xljt6"),
 "LegsIdle": SubResource("Animation_opiqn"),
 "LegsWalk": SubResource("Animation_v5dbf"),
 "RESET": SubResource("Animation_1g0h0"),
-"Walk": SubResource("Animation_cetty"),
-"Walk1H": SubResource("Animation_wfkmy")
+"Walk": SubResource("Animation_cetty")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a1kxy"]
@@ -241,8 +343,58 @@ shader_parameter/flash_modifier = 1.0
 shader_parameter/alpha = 1.0
 shader_parameter/pixelate_amount = 1.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj0b0"]
-resource_local_to_scene = true
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ve3jv"]
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah4an"]
+size = Vector2(10, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4iili"]
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w6o66"]
+size = Vector2(10, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_houi1"]
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5o47e"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5j1sk"]
+size = Vector2(6, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e28ka"]
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gljya"]
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d07n7"]
+size = Vector2(10, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngqyt"]
+size = Vector2(6, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahfbo"]
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lgp6"]
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7por1"]
+size = Vector2(0, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7b27c"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anr3d"]
+size = Vector2(6, 6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a5j82"]
+size = Vector2(8, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73vgj"]
 size = Vector2(6, 6)
 
 [sub_resource type="Curve" id="Curve_qrdy4"]
@@ -273,7 +425,7 @@ colors = PackedColorArray(0, 1, 0.05, 1, 0, 1, 0.05, 0)
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="PlayerBody" type="CharacterBody2D"]
+[node name="PlayerBody" type="CharacterBody2D" groups=["PP"]]
 collision_layer = 2
 platform_on_leave = 2
 script = ExtResource("1_bqcj3")
@@ -297,38 +449,50 @@ playerBody = NodePath("..")
 [node name="BodyStateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initialState", "statesList")]
 script = ExtResource("2_wlggo")
 initialState = NodePath("IdleState")
-statesList = [NodePath("IdleState"), NodePath("WalkState")]
+statesList = [NodePath("IdleState"), NodePath("WalkState"), NodePath("RunState")]
 
 [node name="IdleState" type="Node2D" parent="BodyStateMachine"]
 script = ExtResource("5_38e2w")
 playerData = ExtResource("9_m15tq")
-stateName = "BodyIdle"
+stateName = "Idle"
 animationName = "Idle"
 
 [node name="WalkState" type="Node2D" parent="BodyStateMachine"]
 script = ExtResource("10_cshjn")
 playerData = ExtResource("9_m15tq")
-stateName = "BodyWalk"
+stateName = "Walk"
+animationName = "Walk"
+
+[node name="RunState" type="Node2D" parent="BodyStateMachine"]
+script = ExtResource("8_tc7m4")
+playerData = ExtResource("9_m15tq")
+stateName = "Run"
 animationName = "Walk"
 
 [node name="LegsStateMachine" type="Node2D" parent="." node_paths=PackedStringArray("initialState", "statesList")]
 script = ExtResource("2_wlggo")
 initialState = NodePath("IdleState")
-statesList = [NodePath("IdleState"), NodePath("WalkState")]
+statesList = [NodePath("IdleState"), NodePath("WalkState"), NodePath("RunState")]
 
 [node name="IdleState" type="Node2D" parent="LegsStateMachine"]
 script = ExtResource("11_esq4y")
 playerData = ExtResource("9_m15tq")
 stateName = "LegsIdle"
-animationName = "Idle"
+animationName = "LegsIdle"
 
 [node name="WalkState" type="Node2D" parent="LegsStateMachine"]
 script = ExtResource("12_qvctv")
 playerData = ExtResource("9_m15tq")
 stateName = "LegsWalk"
-animationName = "Walk"
+animationName = "LegsWalk"
 
-[node name="SpriteManager" type="Node2D" parent="." node_paths=PackedStringArray("HeadSprite", "BodySprite", "ArmMainSprite", "ArmOffSprite", "HandMainSprite", "HandOffSprite", "HipsSprite", "LegMainSprite", "LegOffSprite", "FootMainSprite", "FootOffSprite", "SpritesList")]
+[node name="RunState" type="Node2D" parent="LegsStateMachine"]
+script = ExtResource("10_vx4dh")
+playerData = ExtResource("9_m15tq")
+stateName = "LegsRun"
+animationName = "LegsWalk"
+
+[node name="SpriteManager" type="Node2D" parent="." node_paths=PackedStringArray("HeadSprite", "BodySprite", "ArmMainSprite", "ArmOffSprite", "HandMainSprite", "HandOffSprite", "HipsSprite", "LegMainSprite", "LegOffSprite", "SpritesList", "UpperPartsList", "LowerPartsList")]
 script = ExtResource("1_h3tqs")
 HeadSprite = NodePath("SpritesContainer/BodySprite/HeadPos/HeadSprite")
 BodySprite = NodePath("SpritesContainer/BodySprite")
@@ -339,15 +503,9 @@ HandOffSprite = NodePath("SpritesContainer/BodySprite/ArmOffSprite")
 HipsSprite = NodePath("SpritesContainer/HipsSprite")
 LegMainSprite = NodePath("SpritesContainer/HipsSprite/LegMainSprite")
 LegOffSprite = NodePath("SpritesContainer/HipsSprite/LegOffSprite")
-FootMainSprite = NodePath("SpritesContainer/HipsSprite/LegMainSprite/FootMainPos/FootMainSprite")
-FootOffSprite = NodePath("SpritesContainer/HipsSprite/LegOffSprite/FootOffPos/FootOffSprite")
-SpritesList = [NodePath("SpritesContainer/BodySprite/HeadPos/HeadSprite"), NodePath("SpritesContainer/BodySprite"), NodePath("SpritesContainer/BodySprite/ArmMainSprite"), NodePath("SpritesContainer/BodySprite/ArmOffSprite"), NodePath("SpritesContainer/HipsSprite"), NodePath("SpritesContainer/HipsSprite/LegMainSprite"), NodePath("SpritesContainer/HipsSprite/LegOffSprite"), NodePath("SpritesContainer/HipsSprite/LegMainSprite/FootMainPos/FootMainSprite"), NodePath("SpritesContainer/HipsSprite/LegOffSprite/FootOffPos/FootOffSprite")]
-
-[node name="AnimationTree" type="AnimationTree" parent="SpriteManager"]
-reset_on_save = false
-root_node = NodePath("../..")
-tree_root = SubResource("AnimationNodeStateMachine_v7y3t")
-anim_player = NodePath("../BodyAnimationPlayer")
+SpritesList = [NodePath("SpritesContainer/BodySprite/HeadPos/HeadSprite"), NodePath("SpritesContainer/BodySprite"), NodePath("SpritesContainer/BodySprite/ArmMainSprite"), NodePath("SpritesContainer/BodySprite/ArmOffSprite"), NodePath("SpritesContainer/HipsSprite"), NodePath("SpritesContainer/HipsSprite/LegMainSprite"), NodePath("SpritesContainer/HipsSprite/LegOffSprite")]
+UpperPartsList = [NodePath("SpritesContainer/BodySprite/HeadPos/HeadSprite"), NodePath("SpritesContainer/BodySprite"), NodePath("SpritesContainer/BodySprite/ArmMainSprite"), NodePath("SpritesContainer/BodySprite/ArmOffSprite"), NodePath("SpritesContainer/BodySprite/ArmMainSprite/HandMainPos/HandMainSprite"), NodePath("SpritesContainer/BodySprite/ArmOffSprite/HandOffPos/HandOffSprite")]
+LowerPartsList = [NodePath("SpritesContainer/HipsSprite"), NodePath("SpritesContainer/HipsSprite/LegMainSprite"), NodePath("SpritesContainer/HipsSprite/LegOffSprite")]
 
 [node name="BodyAnimationPlayer" type="AnimationPlayer" parent="SpriteManager"]
 reset_on_save = false
@@ -355,6 +513,7 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_2xpx7")
 }
+autoplay = "Idle"
 
 [node name="LegsAnimationPlayer" type="AnimationPlayer" parent="SpriteManager"]
 reset_on_save = false
@@ -362,10 +521,15 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_2xpx7")
 }
+autoplay = "LegsIdle"
 
 [node name="SpritesContainer" type="CanvasGroup" parent="SpriteManager"]
 z_as_relative = false
 material = SubResource("ShaderMaterial_a1kxy")
+
+[node name="BodyPos" type="Marker2D" parent="SpriteManager/SpritesContainer"]
+z_index = 1
+use_parent_material = true
 
 [node name="BodySprite" parent="SpriteManager/SpritesContainer" instance=ExtResource("12_bc2fo")]
 z_index = 14
@@ -376,11 +540,30 @@ defaultTextureSheet = ExtResource("14_1ytaw")
 partIndex = 1
 partOrder = 14
 partModule = 1
+hasHurtBox = true
+AnimationsList = {
+"1HMeleeIdle": ExtResource("17_chiny"),
+"1HMeleeRun": ExtResource("18_fa1n2"),
+"1HMeleeWalk": ExtResource("18_fa1n2"),
+"2HMeleeStyle1Idle": ExtResource("19_onql7"),
+"2HMeleeStyle1Walk": ExtResource("20_1pos0"),
+"2hMeleeStyle1Run": ExtResource("20_1pos0"),
+"Idle": ExtResource("14_1ytaw"),
+"Run": ExtResource("16_kdxbq"),
+"Walk": ExtResource("16_kdxbq")
+}
 
-[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/PartHitbox" index="0"]
-shape = SubResource("RectangleShape2D_xj0b0")
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/HitBox" index="0"]
+shape = SubResource("RectangleShape2D_ve3jv")
+
+[node name="HurtBox" parent="SpriteManager/SpritesContainer/BodySprite" index="1"]
+enabled = true
+
+[node name="HurtboxShape" parent="SpriteManager/SpritesContainer/BodySprite/HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_ah4an")
 
 [node name="HeadPos" type="Marker2D" parent="SpriteManager/SpritesContainer/BodySprite"]
+use_parent_material = true
 
 [node name="HeadSprite" parent="SpriteManager/SpritesContainer/BodySprite/HeadPos" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
 z_index = 15
@@ -390,9 +573,16 @@ displayName = "Head"
 defaultTextureSheet = ExtResource("41_3d4lo")
 partOrder = 15
 parentPart = NodePath("../..")
+hasHurtBox = true
 
-[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/HeadPos/HeadSprite/PartHitbox" index="0"]
-shape = SubResource("RectangleShape2D_xj0b0")
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/HeadPos/HeadSprite/HitBox" index="0"]
+shape = SubResource("RectangleShape2D_4iili")
+
+[node name="HurtBox" parent="SpriteManager/SpritesContainer/BodySprite/HeadPos/HeadSprite" index="1"]
+enabled = true
+
+[node name="HurtboxShape" parent="SpriteManager/SpritesContainer/BodySprite/HeadPos/HeadSprite/HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_w6o66")
 
 [node name="Eye1" type="Node2D" parent="SpriteManager/SpritesContainer/BodySprite/HeadPos"]
 z_index = 16
@@ -416,16 +606,36 @@ partIndex = 2
 partOrder = 13
 partModule = 2
 parentPart = NodePath("..")
+hasHurtBox = true
+AnimationsList = {
+"1HMeleeIdle": ExtResource("24_enww3"),
+"1HMeleeRun": ExtResource("25_civby"),
+"1HMeleeWalk": ExtResource("25_civby"),
+"2HMeleeStyle1Idle": ExtResource("26_bawxk"),
+"2HMeleeStyle1Walk": ExtResource("27_ynhgm"),
+"2hMeleeStyle1Run": ExtResource("27_ynhgm"),
+"Idle": ExtResource("15_rxtq7"),
+"Run": ExtResource("23_ew4xt"),
+"Walk": ExtResource("23_ew4xt")
+}
 
-[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/PartHitbox" index="0"]
-shape = SubResource("RectangleShape2D_xj0b0")
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HitBox" index="0"]
+shape = SubResource("RectangleShape2D_houi1")
+
+[node name="HurtBox" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite" index="1"]
+position = Vector2(0, 10)
+enabled = true
+
+[node name="HurtboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_5o47e")
 
 [node name="HandMainPos" type="Marker2D" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite"]
+use_parent_material = true
 position = Vector2(3, 8)
 
 [node name="HandMainSprite" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HandMainPos" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
 z_index = 12
-position = Vector2(1, -1)
+position = Vector2(3, 8)
 texture = ExtResource("17_t1qmi")
 displayName = "Body"
 defaultTextureSheet = ExtResource("17_t1qmi")
@@ -433,9 +643,19 @@ partIndex = 4
 partOrder = 12
 partModule = 3
 parentPart = NodePath("../../..")
+hasHitBox = true
 
-[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HandMainPos/HandMainSprite/PartHitbox" index="0"]
-shape = SubResource("RectangleShape2D_xj0b0")
+[node name="HitBox" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HandMainPos/HandMainSprite" index="0"]
+enabled = true
+
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HandMainPos/HandMainSprite/HitBox" index="0"]
+shape = SubResource("RectangleShape2D_5j1sk")
+
+[node name="HurtBox" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HandMainPos/HandMainSprite" index="1"]
+position = Vector2(-4, -7)
+
+[node name="HurtboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmMainSprite/HandMainPos/HandMainSprite/HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_e28ka")
 
 [node name="ArmOffSprite" parent="SpriteManager/SpritesContainer/BodySprite" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
 z_index = 13
@@ -447,16 +667,35 @@ partIndex = 3
 partOrder = 13
 partModule = 2
 parentPart = NodePath("..")
+hasHurtBox = true
+AnimationsList = {
+"1HMeleeIdle": ExtResource("31_pu6u3"),
+"1HMeleeRun": ExtResource("32_d46c1"),
+"1HMeleeWalk": ExtResource("32_d46c1"),
+"2HMeleeStyle1Idle": ExtResource("33_umuth"),
+"2HMeleeStyle1Walk": ExtResource("34_tmxrn"),
+"2hMeleeStyle1Run": ExtResource("34_tmxrn"),
+"Idle": ExtResource("16_qf7p2"),
+"Run": ExtResource("30_57n58"),
+"Walk": ExtResource("30_57n58")
+}
 
-[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/PartHitbox" index="0"]
-shape = SubResource("RectangleShape2D_xj0b0")
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HitBox" index="0"]
+shape = SubResource("RectangleShape2D_gljya")
+
+[node name="HurtBox" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite" index="1"]
+position = Vector2(0, -10)
+enabled = true
+
+[node name="HurtboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_d07n7")
 
 [node name="HandOffPos" type="Marker2D" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite"]
 position = Vector2(3, -8)
 
 [node name="HandOffSprite" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
 z_index = 12
-position = Vector2(1, 1)
+position = Vector2(3, -8)
 texture = ExtResource("17_t1qmi")
 flip_v = true
 displayName = "Body"
@@ -465,9 +704,19 @@ partIndex = 5
 partOrder = 12
 partModule = 3
 parentPart = NodePath("../../..")
+hasHitBox = true
 
-[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos/HandOffSprite/PartHitbox" index="0"]
-shape = SubResource("RectangleShape2D_xj0b0")
+[node name="HitBox" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos/HandOffSprite" index="0"]
+enabled = true
+
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos/HandOffSprite/HitBox" index="0"]
+shape = SubResource("RectangleShape2D_ngqyt")
+
+[node name="HurtBox" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos/HandOffSprite" index="1"]
+position = Vector2(-4, 7)
+
+[node name="HurtboxShape" parent="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos/HandOffSprite/HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_ahfbo")
 
 [node name="HipsSprite" parent="SpriteManager/SpritesContainer" instance=ExtResource("12_bc2fo")]
 z_index = 11
@@ -479,9 +728,19 @@ partIndex = 6
 partOrder = 11
 partModule = 4
 partPosition = 1
+AnimationsList = {
+"LegsBackwalk": ExtResource("21_i3ad7"),
+"LegsIdle": ExtResource("18_jtl05"),
+"LegsRun": ExtResource("22_k2qiq"),
+"LegsStrafe": ExtResource("20_ogsy6"),
+"LegsWalk": ExtResource("19_arrhf")
+}
 
-[node name="HitboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/PartHitbox" index="0"]
-shape = SubResource("RectangleShape2D_xj0b0")
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/HitBox" index="0"]
+shape = SubResource("RectangleShape2D_4lgp6")
+
+[node name="HurtboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_7por1")
 
 [node name="LegMainSprite" parent="SpriteManager/SpritesContainer/HipsSprite" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
 z_index = 10
@@ -494,27 +753,28 @@ partOrder = 10
 partModule = 5
 partPosition = 1
 parentPart = NodePath("..")
+hasHurtBox = true
+hasHitBox = true
+AnimationsList = {
+"LegsBackwalk": ExtResource("22_m0md5"),
+"LegsIdle": ExtResource("19_c1aqe"),
+"LegsRun": ExtResource("26_bu4ij"),
+"LegsStrafe": ExtResource("21_234kj"),
+"LegsWalk": ExtResource("20_tkbag")
+}
 
-[node name="HitboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite/PartHitbox" index="0"]
-shape = SubResource("RectangleShape2D_xj0b0")
+[node name="HitBox" parent="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite" index="0"]
+position = Vector2(7, 4)
 
-[node name="FootMainPos" type="Marker2D" parent="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite"]
-position = Vector2(4, -4)
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite/HitBox" index="0"]
+shape = SubResource("RectangleShape2D_7b27c")
 
-[node name="FootMainSprite" parent="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite/FootMainPos" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
-z_index = 9
-texture = ExtResource("18_1t40w")
-hframes = 6
-displayName = "Body"
-defaultTextureSheet = ExtResource("18_1t40w")
-partIndex = 9
-partOrder = 9
-partModule = 6
-partPosition = 1
-parentPart = NodePath("../..")
+[node name="HurtBox" parent="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite" index="1"]
+position = Vector2(0, 3)
+enabled = true
 
-[node name="HitboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite/FootMainPos/FootMainSprite/PartHitbox" index="0"]
-shape = SubResource("RectangleShape2D_xj0b0")
+[node name="HurtboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite/HurtBox" index="0"]
+shape = SubResource("RectangleShape2D_anr3d")
 
 [node name="LegOffSprite" parent="SpriteManager/SpritesContainer/HipsSprite" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
 z_index = 10
@@ -527,28 +787,29 @@ partOrder = 10
 partModule = 5
 partPosition = 1
 parentPart = NodePath("..")
+hasHurtBox = true
+hasHitBox = true
+AnimationsList = {
+"LegsBackwalk": ExtResource("22_p83fg"),
+"LegsIdle": ExtResource("21_lwr0b"),
+"LegsRun": ExtResource("31_iu3xv"),
+"LegsStrafe": ExtResource("23_xxbin"),
+"LegsWalk": ExtResource("24_y14wl")
+}
 
-[node name="HitboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite/PartHitbox" index="0"]
-shape = SubResource("RectangleShape2D_xj0b0")
+[node name="HitBox" parent="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite" index="0"]
+position = Vector2(7, -4)
 
-[node name="FootOffPos" type="Marker2D" parent="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite"]
-position = Vector2(-5, 4)
+[node name="HitboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite/HitBox" index="0"]
+shape = SubResource("RectangleShape2D_a5j82")
 
-[node name="FootOffSprite" parent="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite/FootOffPos" node_paths=PackedStringArray("parentPart") instance=ExtResource("12_bc2fo")]
-z_index = 9
-texture = ExtResource("18_1t40w")
-flip_v = true
-hframes = 6
-displayName = "Body"
-defaultTextureSheet = ExtResource("18_1t40w")
-partIndex = 10
-partOrder = 9
-partModule = 6
-partPosition = 1
-parentPart = NodePath("../..")
+[node name="HurtBox" parent="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite" index="1"]
+position = Vector2(0, -4)
+enabled = true
 
-[node name="HitboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite/FootOffPos/FootOffSprite/PartHitbox" index="0"]
-shape = SubResource("RectangleShape2D_xj0b0")
+[node name="HurtboxShape" parent="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite/HurtBox" index="0"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_73vgj")
 
 [node name="Pointers" type="Node2D" parent="."]
 
@@ -564,6 +825,7 @@ begin_cap_mode = 2
 round_precision = 32
 
 [node name="LookPointer" type="Line2D" parent="Pointers"]
+visible = false
 z_index = 2
 z_as_relative = false
 points = PackedVector2Array(0, 0, 100, 0)
@@ -686,6 +948,4 @@ maxLength = 50
 [editable path="SpriteManager/SpritesContainer/BodySprite/ArmOffSprite/HandOffPos/HandOffSprite"]
 [editable path="SpriteManager/SpritesContainer/HipsSprite"]
 [editable path="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite"]
-[editable path="SpriteManager/SpritesContainer/HipsSprite/LegMainSprite/FootMainPos/FootMainSprite"]
 [editable path="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite"]
-[editable path="SpriteManager/SpritesContainer/HipsSprite/LegOffSprite/FootOffPos/FootOffSprite"]

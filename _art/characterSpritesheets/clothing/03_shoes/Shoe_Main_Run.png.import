@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://67x8t07whldf"
-path="res://.godot/imported/Shoes_Idle.png-c6bf35a2184a172067cdfd858c1e2fe9.ctex"
+uid="uid://b13klfci73yo6"
+path="res://.godot/imported/Shoe_Main_Run.png-a12413b9ecec719c4c3ce5ff03065245.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_art/characterSpritesheets/clothing/03_shoes/Shoes_Idle.png"
-dest_files=["res://.godot/imported/Shoes_Idle.png-c6bf35a2184a172067cdfd858c1e2fe9.ctex"]
+source_file="res://_art/characterSpritesheets/clothing/03_shoes/Shoe_Main_Run.png"
+dest_files=["res://.godot/imported/Shoe_Main_Run.png-a12413b9ecec719c4c3ce5ff03065245.ctex"]
 
 [params]
 

@@ -3,22 +3,23 @@
 [ext_resource type="Script" path="res://_scripts/data/playerData.gd" id="1_wd7dj"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_wd7dj")
 hasDynamicSpeed = true
 lerpVelocity = false
 maxMoveSpeed = 300.0
 baseMoveSpeed = 150.0
-strafeSpeedMulti = 0.75
-backwardSpeedMulti = 0.5
+acceleration = 10.0
+decceleration = 200.0
+strafeSpeedMulti = 0.8
+backwardSpeedMulti = 0.75
 walkSpeedMulti = 0.35
-forwardRunSpeedMulti = 1.5
+forwardRunSpeedMulti = 1.2
 strafeRunSpeedMulti = 1.1
 backwardRunSpeedMulti = 0.8
-acceleration = 800.0
-decceleration = 1500.0
 turnSpeed = 10.0
-bodyRotationSpeed = 10.0
-hipsRotationSpeed = 10.0
+bodyRotationSpeed = 20.0
+hipsRotationSpeed = 20.0
 forwardAnimSpeed = 1.0
 strafeAnimSpeed = 0.8
 backwardAnimSpeed = 0.5

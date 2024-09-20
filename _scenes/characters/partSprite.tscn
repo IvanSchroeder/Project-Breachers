@@ -1,29 +1,48 @@
-[gd_scene load_steps=3 format=3 uid="uid://mok0eta1cfcs"]
+[gd_scene load_steps=6 format=3 uid="uid://mok0eta1cfcs"]
 
 [ext_resource type="Script" path="res://_scripts/characters/characterPart.gd" id="2_07m2k"]
+[ext_resource type="Script" path="res://_scripts/characters/hitBox.gd" id="2_nmh4w"]
+[ext_resource type="Script" path="res://_scripts/characters/hurtBox.gd" id="3_pn33r"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjulv"]
-resource_local_to_scene = true
-size = Vector2(6, 6)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1oi0"]
 
-[node name="PartSprite" type="Sprite2D" node_paths=PackedStringArray("hitbox")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6nmt"]
+
+[node name="PartSprite" type="Sprite2D" node_paths=PackedStringArray("hurtBox", "hitBox")]
 z_index = 1
 z_as_relative = false
 use_parent_material = true
 script = ExtResource("2_07m2k")
 displayName = "Part"
 partModule = 0
-hitbox = NodePath("PartHitbox")
+hurtBox = NodePath("HurtBox")
+hitBox = NodePath("HitBox")
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
 "output_section": false,
 "slice_section": false
 }
 
-[node name="PartHitbox" type="Area2D" parent="."]
-input_pickable = false
+[node name="HitBox" type="Area2D" parent="." node_paths=PackedStringArray("shape")]
 monitoring = false
+monitorable = false
+script = ExtResource("2_nmh4w")
+enabled = false
+shape = NodePath("HitboxShape")
 
-[node name="HitboxShape" type="CollisionShape2D" parent="PartHitbox"]
-shape = SubResource("RectangleShape2D_fjulv")
-debug_color = Color(0.7, 0, 0, 0.419608)
+[node name="HitboxShape" type="CollisionShape2D" parent="HitBox"]
+z_index = 1
+shape = SubResource("RectangleShape2D_o1oi0")
+debug_color = Color(0, 0.5, 1, 0.419608)
+
+[node name="HurtBox" type="Area2D" parent="." node_paths=PackedStringArray("shape")]
+monitoring = false
+monitorable = false
+script = ExtResource("3_pn33r")
+enabled = false
+shape = NodePath("HurtboxShape")
+
+[node name="HurtboxShape" type="CollisionShape2D" parent="HurtBox"]
+z_index = 1
+shape = SubResource("RectangleShape2D_o6nmt")
+debug_color = Color(1, 0, 0, 0.419608)

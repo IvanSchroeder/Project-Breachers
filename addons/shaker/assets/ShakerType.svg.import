@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyd7c16kbe35i"
-path="res://.godot/imported/Foot_Idle.png-6a27c955e014a6c95cc99fbcc5efdd45.ctex"
+uid="uid://ch5mp344tqj3w"
+path="res://.godot/imported/ShakerType.svg-0e40c87944ca8f10dcb4da67f37ccfdf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://_art/characterSpritesheets/base/06_foot/Foot_Idle.png"
-dest_files=["res://.godot/imported/Foot_Idle.png-6a27c955e014a6c95cc99fbcc5efdd45.ctex"]
+source_file="res://addons/shaker/assets/ShakerType.svg"
+dest_files=["res://.godot/imported/ShakerType.svg-0e40c87944ca8f10dcb4da67f37ccfdf.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

@@ -24,6 +24,7 @@ aseprite_executable_path="C:/Program Files (x86)/Steam/steamapps/common/Aseprite
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 NodeUtilities="*res://_scripts/utils/nodeUtils.gd"
+Shaker="*res://addons/shaker/src/Shaker.gd"
 
 [display]
 
@@ -34,7 +35,7 @@ window/stretch/scale_mode="integer"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/AsepriteWizard/plugin.cfg", "res://addons/GenerateAnimationPlayerFrameTracks/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/goutte.animated_shape_2d/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg", "res://addons/nklbdev.importality/plugin.cfg", "res://addons/nv.node_pivot/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/AsepriteWizard/plugin.cfg", "res://addons/GenerateAnimationPlayerFrameTracks/plugin.cfg", "res://addons/SignalVisualizer/plugin.cfg", "res://addons/goutte.animated_shape_2d/plugin.cfg", "res://addons/nklbdev.aseprite_importers/plugin.cfg", "res://addons/nklbdev.importality/plugin.cfg", "res://addons/nv.node_pivot/plugin.cfg", "res://addons/phantom_camera/plugin.cfg", "res://addons/shaker/plugin.cfg", "res://addons/simple_tool_button/plugin.cfg")
 
 [file_customization]
 

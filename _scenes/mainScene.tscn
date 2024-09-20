@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://bgqytwox86f2o"]
+[gd_scene load_steps=15 format=3 uid="uid://bgqytwox86f2o"]
 
 [ext_resource type="Texture2D" uid="uid://dp33nl50ptbnd" path="res://_art/SimpleParticle.png" id="1_5chq2"]
 [ext_resource type="PackedScene" uid="uid://dmdebp6a67goa" path="res://_scenes/characters/playerCharacter.tscn" id="2_31pxf"]
 [ext_resource type="Shader" path="res://_art/shaders/flash_effect.gdshader" id="2_ggeaj"]
 [ext_resource type="Texture2D" uid="uid://4rxb56g2rvxq" path="res://_art/characterSpritesheets/weapon/Weapon_Katana_Static.png" id="3_bqjbx"]
 [ext_resource type="Script" path="res://_scripts/pixelPerfectLayer.gd" id="3_nsubr"]
+[ext_resource type="Script" path="res://_scripts/data/playerData.gd" id="5_gc22t"]
 
 [sub_resource type="Curve" id="Curve_k4qq5"]
 _data = [Vector2(0, 0.8), 0.0, 0.0, 0, 0, Vector2(0.6, 0.8), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -47,6 +48,30 @@ shader_parameter/flash_modifier = 1.0
 shader_parameter/alpha = 1.0
 shader_parameter/pixelate_amount = 1.0
 
+[sub_resource type="Resource" id="Resource_bqsm2"]
+resource_local_to_scene = true
+script = ExtResource("5_gc22t")
+hasDynamicSpeed = true
+lerpVelocity = false
+maxMoveSpeed = 300.0
+baseMoveSpeed = 150.0
+acceleration = 800.0
+decceleration = 1500.0
+strafeSpeedMulti = 0.75
+backwardSpeedMulti = 0.5
+walkSpeedMulti = 0.35
+forwardRunSpeedMulti = 1.5
+strafeRunSpeedMulti = 1.1
+backwardRunSpeedMulti = 0.8
+turnSpeed = 10.0
+bodyRotationSpeed = 20.0
+hipsRotationSpeed = 20.0
+forwardAnimSpeed = 1.0
+strafeAnimSpeed = 0.8
+backwardAnimSpeed = 0.5
+walkAnimSpeed = 0.4
+runAnimSpeed = 1.25
+
 [sub_resource type="ViewportTexture" id="ViewportTexture_q3s8b"]
 viewport_path = NodePath("PixelPerfectLayer/SubViewportContainer/SubViewport")
 
@@ -64,8 +89,9 @@ lifetime = 10.0
 material = SubResource("ShaderMaterial_gkp8s")
 texture = ExtResource("3_bqjbx")
 
-[node name="PlayerCharacter" parent="TestLevel" groups=["PP"] instance=ExtResource("2_31pxf")]
+[node name="PlayerCharacter" parent="TestLevel" instance=ExtResource("2_31pxf")]
 position = Vector2(-1, 0)
+entityData = SubResource("Resource_bqsm2")
 
 [node name="PlayerCam" type="Camera2D" parent="TestLevel/PlayerCharacter"]
 position = Vector2(1, 0)

@@ -20,8 +20,6 @@ class_name SpriteManager extends Node2D
 @export var HipsSprite : CharacterPart
 @export var LegMainSprite : CharacterPart
 @export var LegOffSprite : CharacterPart
-@export var FootMainSprite : CharacterPart
-@export var FootOffSprite : CharacterPart
 
 @export var HaircutSprite : CharacterPart
 @export var ShirtSprite : CharacterPart
@@ -39,34 +37,36 @@ class_name SpriteManager extends Node2D
 @export var legsFrame : int = 0 :
 	set = update_legs_frames
 
-func _ready():
-	#var format_message = "Added %s to %s."
-	#var actual_message
-	#actual_message = format_message % [part, BaseSpritesList]
-	for part in SpritesList :
-		if part.partPosition == part.PartPosition.Upper :
-			UpperPartsList.append(part)
-		else :
-			LowerPartsList.append(part)
+#func _ready():
+	##var format_message = "Added %s to %s."
+	##var actual_message
+	##actual_message = format_message % [part, BaseSpritesList]
+	#for part in SpritesList :
+		#if part.partPosition == part.PartPosition.Upper :
+			#UpperPartsList.append(part)
+		#else :
+			#LowerPartsList.append(part)
 
-func change_current_animation_body(anim : String) :
-	currentBodyAnimation = anim
-	bodyAnimPlayer.play(currentBodyAnimation)
-	change_spritesheets(currentBodyAnimation, UpperPartsList)
+func change_current_animation_body(animName : String, animSheet : String) :
+	if currentBodyAnimation != animName :
+		currentBodyAnimation = animName
+		bodyAnimPlayer.play(currentBodyAnimation)
+	change_spritesheets(animSheet, UpperPartsList)
 	
-func change_current_animation_legs(anim : String) :
-	currentLegsAnimation = anim
-	legsAnimPlayer.play("Legs" + anim)
-	change_spritesheets(anim, LowerPartsList)
+func change_current_animation_legs(animName : String, animSheet : String) :
+	if currentLegsAnimation != animName :
+		currentLegsAnimation = animName
+		legsAnimPlayer.play(currentLegsAnimation)
+	change_spritesheets(animSheet, LowerPartsList)
 
-func change_spritesheets(anim : String, list : Array[CharacterPart]) :
+func change_spritesheets(animSheet : String, list : Array[CharacterPart]) :
 	for part : CharacterPart in list :
-		part.set_anim_sheet(anim)
+		part.set_anim_sheet(animSheet)
 
-func change_legs_spritesheets(anim : String) :
-	HipsSprite.set_anim_sheet(anim)
-	LegMainSprite.set_anim_sheet(anim)
-	LegOffSprite.set_anim_sheet(anim)
+#func change_legs_spritesheets(animSheet : String) :
+	#HipsSprite.set_anim_sheet(animSheet)
+	#LegMainSprite.set_anim_sheet(animSheet)
+	#LegOffSprite.set_anim_sheet(animSheet)
 
 func update_body_frames(newFrame):
 	bodyFrame = newFrame

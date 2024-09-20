@@ -13,14 +13,11 @@ func rotate_towards(node : Node, direction : Vector2, delta : float, instant : b
 
 func rotate_towards_vector(vector : Vector2, direction : Vector2, delta : float, instant : bool = true, speed : float = 1000.0) -> Vector2 :
 	var angle = vector.angle_to(direction)
-	var rotVec = Vector2.ZERO
 	
 	if instant :
-		rotVec = vector.rotated(sign(angle) * min(delta * 1000.0, abs(angle)))
+		return vector.rotated(sign(angle) * min(delta * 1000.0, abs(angle)))
 	else :
-		rotVec = vector.rotated(sign(angle) * min(delta * speed, abs(angle)))
-	
-	return rotVec
+		return vector.rotated(sign(angle) * min(delta * speed, abs(angle)))
 
 ## Searches a node's immediate children for the first node of type "type"
 ##
